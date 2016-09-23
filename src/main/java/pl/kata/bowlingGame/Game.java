@@ -2,7 +2,7 @@ package pl.kata.bowlingGame;
 
 public class Game {
 
-	private final int COUNT_FRAME = 10;
+	private final static int COUNT_FRAME = 10;
 	private final BowlingFrame[] bowlingFrame = new BowlingFrame[COUNT_FRAME - 1];
 	private final TenthBowlingFrame tenthBowlingFrame = new TenthBowlingFrame();
 	private int id;

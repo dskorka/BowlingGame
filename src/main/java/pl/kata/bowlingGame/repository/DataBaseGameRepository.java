@@ -9,11 +9,10 @@ import javax.sql.DataSource;
 
 import pl.kata.bowlingGame.Game;
 
-
 public class DataBaseGameRepository implements GameRepository {
 
 	private static final String TABLE_NAME = "game_rolls";
-	
+
 	private static final String ID = "id";
 	private static final String FIRST_ROLL = "first_roll";
 	private static final String SECOND_ROLL = "second_roll";
@@ -37,58 +36,49 @@ public class DataBaseGameRepository implements GameRepository {
 	private static final String TWENTYTH_ROLL = "twentyth_roll";
 	private static final String TWENTH_FIRST_ROLL = "twenty_first_roll";
 
-	private static final String SAVE_GAME_SCORE = " insert into " + TABLE_NAME 
-			+ " ( " + ID + " , " + FIRST_ROLL + " , " + SECOND_ROLL + " , " + THIRD_ROLL + " , " +
-			FOURTH_ROLL + " , " + FIFTH_ROLL + " , " + SIXTH_ROLL + " , " + SEVENTH_ROLL + " , " +
-			EIGHTH_ROLL + " , " + NINTH_ROLL + " , " + TENTH_ROLL + " , " + ELEVENTH_ROLL + " , " +
-			TWELFTH_ROLL + " , " + THIRTEENTH_ROLL + " , " + FOURTEENTH_ROLL + " , " + 
-			FIFTEENTH_ROLL + " , " + SIXTEENTH_ROLL + " , " + SEVENTEENTH_ROLL + " , " +
-			EIGHTEENTH_ROLL + " , " + NINETEENTH_ROLL + " , " + TWENTYTH_ROLL + " , " +
-			TWENTH_FIRST_ROLL	+ " ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)" ;
-			
+	private static final String SAVE_GAME_SCORE = " insert into " + TABLE_NAME + " ( " + ID + " , " + FIRST_ROLL + " , "
+			+ SECOND_ROLL + " , " + THIRD_ROLL + " , " + FOURTH_ROLL + " , " + FIFTH_ROLL + " , " + SIXTH_ROLL + " , "
+			+ SEVENTH_ROLL + " , " + EIGHTH_ROLL + " , " + NINTH_ROLL + " , " + TENTH_ROLL + " , " + ELEVENTH_ROLL
+			+ " , " + TWELFTH_ROLL + " , " + THIRTEENTH_ROLL + " , " + FOURTEENTH_ROLL + " , " + FIFTEENTH_ROLL + " , "
+			+ SIXTEENTH_ROLL + " , " + SEVENTEENTH_ROLL + " , " + EIGHTEENTH_ROLL + " , " + NINETEENTH_ROLL + " , "
+			+ TWENTYTH_ROLL + " , " + TWENTH_FIRST_ROLL + " ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+
 	private static final String SELECT_GAME_BY_ID = "select count(*) from " + TABLE_NAME + " where id = ?";
-	
-	private static final String SELECT_ALL_COLUMN_BY_ID ="select * from " + TABLE_NAME + " where id = ?";
-	
-	private static final String UPDATE_GAME_SCORE = "update " + TABLE_NAME + 
-			" set " + 
-			FIRST_ROLL + " = ?," + SECOND_ROLL + " = ?," +
-			THIRD_ROLL + " = ?," + FOURTH_ROLL + " = ?," +
-			FIFTH_ROLL + " = ?," + SIXTH_ROLL + " = ?," +
-			SEVENTH_ROLL + " = ?," + EIGHTH_ROLL + " = ?," +
-			NINTH_ROLL + " = ?," + TENTH_ROLL + " = ?," +
-			ELEVENTH_ROLL + " = ?," + TWELFTH_ROLL + " = ?," +
-			THIRTEENTH_ROLL + " = ?," + FOURTEENTH_ROLL + " = ?," +
-			FIFTEENTH_ROLL + " = ?," + SIXTEENTH_ROLL + " = ?," +
-			SEVENTEENTH_ROLL + " = ?," + EIGHTEENTH_ROLL + " = ?," +
-			NINETEENTH_ROLL + " = ?," + TWENTYTH_ROLL + " = ?," +
-			TWENTH_FIRST_ROLL + " = ?"+
-			 " where " + ID + " = ?";
+
+	private static final String SELECT_ALL_COLUMN_BY_ID = "select * from " + TABLE_NAME + " where id = ?";
+
+	private static final String UPDATE_GAME_SCORE = "update " + TABLE_NAME + " set " + FIRST_ROLL + " = ?,"
+			+ SECOND_ROLL + " = ?," + THIRD_ROLL + " = ?," + FOURTH_ROLL + " = ?," + FIFTH_ROLL + " = ?," + SIXTH_ROLL
+			+ " = ?," + SEVENTH_ROLL + " = ?," + EIGHTH_ROLL + " = ?," + NINTH_ROLL + " = ?," + TENTH_ROLL + " = ?,"
+			+ ELEVENTH_ROLL + " = ?," + TWELFTH_ROLL + " = ?," + THIRTEENTH_ROLL + " = ?," + FOURTEENTH_ROLL + " = ?,"
+			+ FIFTEENTH_ROLL + " = ?," + SIXTEENTH_ROLL + " = ?," + SEVENTEENTH_ROLL + " = ?," + EIGHTEENTH_ROLL
+			+ " = ?," + NINETEENTH_ROLL + " = ?," + TWENTYTH_ROLL + " = ?," + TWENTH_FIRST_ROLL + " = ?" + " where "
+			+ ID + " = ?";
 
 	private final DataSource dataSource;
-	
-    public DataBaseGameRepository(DataSource dataSource){
-    	this.dataSource = dataSource;
-    }
-	
-    public void save(Game game) {
+
+	public DataBaseGameRepository(DataSource dataSource) {
+		this.dataSource = dataSource;
+	}
+
+	public void save(Game game) {
 		if (isNotExistGame(game)) {
 			writeResultToDataBase(game);
 		} else {
 			updateGameScore(game);
 		}
 	}
-    
-    public Game load(int idGame) {
+
+	public Game load(int idGame) {
 		Game game = searchRoundGame(idGame);
 		return game;
 	}
-	
 
 	private void writeResultToDataBase(Game game) {
 
 		try (Connection connection = dataSource.getConnection();
-				PreparedStatement prepatedStatement = connection.prepareStatement(SAVE_GAME_SCORE)) {
+				PreparedStatement prepatedStatement = connection.prepareStatement(SAVE_GAME_SCORE)
+			) {
 
 			prepatedStatement.setInt(1, game.getId());
 			int[] gameRolls = game.getRolls();
@@ -104,14 +94,19 @@ public class DataBaseGameRepository implements GameRepository {
 		}
 	}
 
+	private PreparedStatement createPreparedStatement(Connection con, int idGame, String slq) throws SQLException {
+		PreparedStatement ps = con.prepareStatement(slq);
+		ps.setInt(1, idGame);
+		return ps;
+	}
+
 	private int searchRoundGameEx(int idGame) {
 		int isExist = 0;
 		try (Connection connection = dataSource.getConnection();
-				PreparedStatement preparedStatement = connection.prepareStatement(SELECT_GAME_BY_ID)
-			) {
-			preparedStatement.setInt(1, idGame);
-			ResultSet resultSet = preparedStatement.executeQuery();
-			if(resultSet.next()) {
+				PreparedStatement preparedStatement = createPreparedStatement(connection, idGame, SELECT_GAME_BY_ID);
+				ResultSet resultSet = preparedStatement.executeQuery()) {
+
+			if (resultSet.next()) {
 				isExist = resultSet.getInt(1);
 			}
 
@@ -121,15 +116,15 @@ public class DataBaseGameRepository implements GameRepository {
 		}
 		return isExist;
 	}
-	
+
 	private Game searchRoundGame(int id) {
 		Game roundGame = null;
 
 		try (Connection connection = dataSource.getConnection();
-				PreparedStatement prepatedStatement = connection.prepareStatement(SELECT_ALL_COLUMN_BY_ID);) {
-			prepatedStatement.setInt(1, id);
+				PreparedStatement prepatedStatement = createPreparedStatement(connection, id, SELECT_ALL_COLUMN_BY_ID);
+				ResultSet rs = prepatedStatement.executeQuery()
+			) {
 
-			ResultSet rs = prepatedStatement.executeQuery();
 			int[] resultScore = new int[21];
 
 			while (rs.next()) {
@@ -161,23 +156,22 @@ public class DataBaseGameRepository implements GameRepository {
 			}
 
 		} catch (SQLException ex) {
-			throw new RuntimeException();
+			throw new RuntimeException(ex);
 		}
 		return roundGame;
 	}
-	
+
 	private void updateGameScore(Game game) {
 
 		try (Connection conn = dataSource.getConnection();
-				PreparedStatement prepatedStatement = conn.prepareStatement(UPDATE_GAME_SCORE)
-			) {
+				PreparedStatement prepatedStatement = conn.prepareStatement(UPDATE_GAME_SCORE)) {
 
 			int[] gameRolls = game.getRolls();
-		
+
 			for (int i = 0; i < gameRolls.length; i++) {
 				prepatedStatement.setInt(i + 1, gameRolls[i]);
 			}
-			
+
 			int id = game.getId();
 			prepatedStatement.setInt(22, id);
 			prepatedStatement.executeUpdate();
@@ -187,7 +181,7 @@ public class DataBaseGameRepository implements GameRepository {
 			throw new RuntimeException();
 		}
 	}
-	
+
 	private boolean isNotExistGame(Game game) {
 		return searchRoundGameEx(game.getId()) == 0;
 	}

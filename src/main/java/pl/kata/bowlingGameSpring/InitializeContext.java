@@ -7,8 +7,9 @@ public class InitializeContext {
 
 	public static void main(String[] args) {
 
-		ConfigurableApplicationContext context = new AnnotationConfigApplicationContext(GameConfig.class);
-		Object gameService = context.getBean("gameService");
-		System.out.println(gameService);
+		try (ConfigurableApplicationContext context = new AnnotationConfigApplicationContext(GameConfig.class)) {
+			Object gameService = context.getBean("gameService");
+			System.out.println(gameService);
+		}
 	}
 }

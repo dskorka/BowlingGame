@@ -51,7 +51,7 @@ public class BowlingGameTest {
 	// when
 		int score = game.score();
 	// then
-		Assert.assertEquals(150, score); //TODO - wynik = 150 ze wzgledu na brak uchwytu do extra rzutu w 10 ramce inny wynik
+		Assert.assertEquals(150, score);
 	}
 	
 	/*@Test
