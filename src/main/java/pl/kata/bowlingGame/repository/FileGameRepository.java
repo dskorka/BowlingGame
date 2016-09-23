@@ -58,7 +58,7 @@ public class FileGameRepository implements GameRepository {
 	}
 	
 	private List<RoundGame> readFromFile() {
-		List<RoundGame> gameResults = new LinkedList<RoundGame>();
+		List<RoundGame> gameResults = new LinkedList<>();
 	
 		try (FileReader fileReader = new FileReader(filePathToGame);
 				BufferedReader bufferedRreader = new BufferedReader(fileReader)

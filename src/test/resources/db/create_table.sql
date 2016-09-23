@@ -1,4 +1,4 @@
-CREATE TABLE game_rolls
+CREATE TABLE IF NOT EXISTS game_rolls
 	(
 		id 					INT NOT NULL,
 		first_roll			INT NOT NULL,

@@ -7,7 +7,7 @@ import pl.kata.bowlingGame.Game;
 
 
 public class InMemoryGameRepository implements GameRepository {
-	Map<Integer, String> gameRepository = new HashMap<Integer, String>();
+	Map<Integer, String> gameRepository = new HashMap<>();
 
 	
 	@Override
