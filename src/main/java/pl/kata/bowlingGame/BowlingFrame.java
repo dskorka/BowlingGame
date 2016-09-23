@@ -5,6 +5,7 @@ package pl.kata.bowlingGame;
 	private Integer firstRoll;
 	private Integer secondRoll;
 	private BowlingFrame nextBowlingFrame;
+	
 
 	public Integer getFirstRolle() {
 		return firstRoll;
