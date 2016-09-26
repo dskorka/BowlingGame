@@ -6,12 +6,11 @@
 - Nie używamy System.out.println() w aplikacji
 - Jeżeli w danym fragmencie kodu występuje problem, to pracujemy nad nim do czasu gdy zostanie naprawiony - "sekwencyjna realizacja algorytmu"
 - Zasada SOLID:
-	***S**ingle responsibility principle(zasada pojedyńczej odpowiedzialności) - dany kawałek kodu ma tylko jedną odpowiedzialność
-	***O**pen/closed principle(zasada otwarte-zamknięte) - otwarty na rozszerzenie, zamknięty na modyfikację. Przy zmianie wymagań nie powinien być zmieniany stary działający kod, ale dodawany nowy który rozszeża zachowania.
-	***L**iskov substitution principle(dziedziczenie zachowania a nie pól) - klasy nie dziedziczą struktór danych. Dziedziczymy metody, które możemy modyfikować poprzez stosowanie interfejsów.
-	***I**nterface segregation principle(zasada segregacji interfejsów) - interfejs udostępnia tylko niezbedne metody
-	***D**ependency inversion principle(zasada odwrócenia zależności) - wstrzykiwanie zależności. Moduły wysokopoziomowe nie powinny zależeć od modułów nisko poziomowych, np. usługi zapisującej nie interesuje jak dane zostają zapisane i gdzie. 
-- 
+	*Single responsibility principle(zasada pojedyńczej odpowiedzialności) - dany kawałek kodu ma tylko jedną odpowiedzialność
+	*Open/closed principle(zasada otwarte-zamknięte) - otwarty na rozszerzenie, zamknięty na modyfikację. Przy zmianie wymagań nie powinien być zmieniany stary działający kod, ale dodawany nowy który rozszeża zachowania
+	*Liskov substitution principle(dziedziczenie zachowania a nie pól) - klasy nie dziedziczą struktór danych. Dziedziczymy metody, które możemy modyfikować poprzez stosowanie interfejsów
+	*Interface segregation principle(zasada segregacji interfejsów) - interfejs udostępnia tylko niezbedne metody
+	*Dependency inversion principle(zasada odwrócenia zależności) - wstrzykiwanie zależności. Moduły wysokopoziomowe nie powinny zależeć od modułów nisko poziomowych, np. usługi zapisującej nie interesuje jak dane zostają zapisane i gdzie
 
 
 ##### Tworzenie kodu
