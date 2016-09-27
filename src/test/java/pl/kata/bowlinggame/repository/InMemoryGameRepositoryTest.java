@@ -1,12 +1,12 @@
-package pl.kata.bowlingGame;
+package pl.kata.bowlinggame.repository;
 
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import pl.kata.bowlingGame.game.Game;
-import pl.kata.bowlingGame.repository.GameRepository;
-import pl.kata.bowlingGame.repository.InMemoryGameRepository;
+import pl.kata.bowlinggame.game.Game;
+import pl.kata.bowlinggame.repository.GameRepository;
+import pl.kata.bowlinggame.repository.InMemoryGameRepository;
 
 
 public class InMemoryGameRepositoryTest {

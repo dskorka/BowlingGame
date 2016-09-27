@@ -1,4 +1,4 @@
-package pl.kata.bowlingGame;
+package pl.kata.bowlinggame.repository;
 
 import javax.sql.DataSource;
 
@@ -6,17 +6,17 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import pl.kata.bowlingGame.game.Game;
-import pl.kata.bowlingGame.repository.DataBaseGameRepository;
+import pl.kata.bowlinggame.game.Game;
+import pl.kata.bowlinggame.repository.SimpleJdbcGameRepository;
 
-public class DataBaseGameRepositoryTest {
+public class SimpleJdbcGameRepositoryTest {
 	
-	DataBaseGameRepository dataBaseGameRepository;
+	SimpleJdbcGameRepository dataBaseGameRepository;
 	
 	@Before
 	public void setUp(){
 		DataSource ds = H2DataSourceCreator.create();
-		dataBaseGameRepository = new DataBaseGameRepository(ds);
+		dataBaseGameRepository = new SimpleJdbcGameRepository(ds);
 	}
 	
 	@Test

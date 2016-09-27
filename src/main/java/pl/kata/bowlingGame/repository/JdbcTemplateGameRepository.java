@@ -1,14 +1,13 @@
-package pl.kata.bowlingGame.repository;
+package pl.kata.bowlinggame.repository;
 
 import javax.sql.DataSource;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 
-import pl.kata.bowlingGame.GameRowMapper;
-import pl.kata.bowlingGame.game.Game;
+import pl.kata.bowlinggame.game.Game;
 
 
-public class JdbcTemplateGameRepository implements GameRepository {
+class JdbcTemplateGameRepository implements GameRepository {
 	
 	private JdbcTemplate jdbcTemplate;
 	
@@ -74,9 +73,9 @@ public class JdbcTemplateGameRepository implements GameRepository {
 	@Override
 	public void save(Game game) {
 		if (isNotExist(game)) {
-			writeResultToDataBase(game);
+			writeGame(game);
 		} else {
-			updateGameScore(game);
+			updateGame(game);
 		}
 	}
 	
@@ -95,26 +94,26 @@ public class JdbcTemplateGameRepository implements GameRepository {
 		return rowCount;
 	}
 	
-	private void writeResultToDataBase(Game game) {
+	private void writeGame(Game game) {
 		Object[] listObject = new Object[22];
-		int[] roll = game.getRolls();
 		
 		listObject[0] = game.getId();
 
+		int[] rolls = game.getRolls();
 		for (int i = 1; i < 22; i++) {
-			listObject[i] = roll[i - 1];
+			listObject[i] = rolls[i - 1];
 		}
 
 		jdbcTemplate.update(SAVE_GAME_SCORE, listObject);
 	}
 
-	private void updateGameScore(Game game) {
+	private void updateGame(Game game) {
 		
 		Object[] listObject = new Object[22];
-		int[] roll = game.getRolls();
+		int[] rolls = game.getRolls();
 		
 		for (int i = 0; i < 21; i++) {
-			listObject[i] = roll[i];
+			listObject[i] = rolls[i];
 		}
 		listObject[21] = game.getId();
 

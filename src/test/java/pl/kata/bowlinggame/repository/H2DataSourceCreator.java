@@ -1,4 +1,4 @@
-package pl.kata.bowlingGame;
+package pl.kata.bowlinggame.repository;
 
 import java.util.Random;
 

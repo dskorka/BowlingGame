@@ -1,26 +1,29 @@
-package pl.kata.bowlingGame;
-
-import javax.sql.DataSource;
+package pl.kata.bowlinggame.repository;
 
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import pl.kata.bowlingGame.game.Game;
-import pl.kata.bowlingGame.repository.JdbcTemplateGameRepository;
+import pl.kata.bowlinggame.game.Game;
+import pl.kata.bowlinggame.repository.JdbcTemplateGameRepository;
 
-public class JdbcTemplateGameRepositoryTest {
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(classes = DataSourceTestConfiguration.class)
+public class JdbcTemplGameRepositoryTest {
 	
 	
+	@Autowired
 	JdbcTemplateGameRepository jdbcTemplateGameRepository;
-
-	@Before
-	public void setUp() {
-		DataSource dataSource = JdbcTemplateDataSourceCreator.createEmbeddedDatabase();
-		jdbcTemplateGameRepository = new JdbcTemplateGameRepository(dataSource);
+	
+	
+	@Test
+	public void should_init_jdbc_template_game_repository(){
+		Assert.assertNotNull(jdbcTemplateGameRepository);
 	}
 	
-
 	@Test
 	public void should_save_and_load_game_of_data_base() {
 		// given
@@ -37,7 +40,7 @@ public class JdbcTemplateGameRepositoryTest {
 		int score = gameOfRepository.score();
 		Assert.assertEquals(20, score);
 	}
-
+	
 	@Test
 	public void should_have_the_same_id_after_save() {
 		// given

@@ -1,4 +1,4 @@
-package pl.kata.bowlingGameSpring;
+package pl.kata.bowlinggame.spring;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -9,9 +9,9 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import pl.kata.bowlingGame.game.Game;
-import pl.kata.bowlingGame.repository.GameRepository;
-import pl.kata.bowlingGameSpring.GameService;
+import pl.kata.bowlinggame.conf.GameService;
+import pl.kata.bowlinggame.game.Game;
+import pl.kata.bowlinggame.repository.GameRepository;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = DepencyInjectionTest.Config.class)

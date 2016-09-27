@@ -1,4 +1,4 @@
-package pl.kata.bowlingGame.repository;
+package pl.kata.bowlinggame.repository;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -8,9 +8,9 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-import pl.kata.bowlingGame.game.Game;
+import pl.kata.bowlinggame.game.Game;
 
-public class FileGameRepository implements GameRepository {
+class FileGameRepository implements GameRepository {
 	
 	private File filePathToGame;
 	

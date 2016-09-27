@@ -1,4 +1,4 @@
-package pl.kata.bowlingGame.game;
+package pl.kata.bowlinggame.game;
 
 public class Game {
 

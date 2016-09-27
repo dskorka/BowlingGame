@@ -1,4 +1,4 @@
-package pl.kata.bowlingGame.repository;
+package pl.kata.bowlinggame.repository;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -7,9 +7,9 @@ import java.sql.SQLException;
 
 import javax.sql.DataSource;
 
-import pl.kata.bowlingGame.game.Game;
+import pl.kata.bowlinggame.game.Game;
 
-public class DataBaseGameRepository implements GameRepository {
+public class SimpleJdbcGameRepository implements GameRepository {
 
 	private static final String TABLE_NAME = "game_rolls";
 
@@ -57,24 +57,24 @@ public class DataBaseGameRepository implements GameRepository {
 
 	private final DataSource dataSource;
 
-	public DataBaseGameRepository(DataSource dataSource) {
+	public SimpleJdbcGameRepository(DataSource dataSource) {
 		this.dataSource = dataSource;
 	}
 
 	public void save(Game game) {
 		if (isNotExistGame(game)) {
-			writeResultToDataBase(game);
+			writeGame(game);
 		} else {
-			updateGameScore(game);
+			updateGame(game);
 		}
 	}
 
 	public Game load(int idGame) {
-		Game game = searchRoundGame(idGame);
+		Game game = searchGame(idGame);
 		return game;
 	}
 
-	private void writeResultToDataBase(Game game) {
+	private void writeGame(Game game) {
 
 		try (Connection connection = dataSource.getConnection();
 				PreparedStatement prepatedStatement = connection.prepareStatement(SAVE_GAME_SCORE)
@@ -89,8 +89,7 @@ public class DataBaseGameRepository implements GameRepository {
 			prepatedStatement.executeUpdate();
 
 		} catch (SQLException e) {
-			e.printStackTrace();
-			throw new RuntimeException();
+			throw new RuntimeException(e);
 		}
 	}
 
@@ -100,36 +99,33 @@ public class DataBaseGameRepository implements GameRepository {
 		return ps;
 	}
 
-	private int searchRoundGameEx(int idGame) {
-		int isExist = 0;
+	private int getCountOfGames(int idGame) {
+		int countOfGames = 0;
 		try (Connection connection = dataSource.getConnection();
 				PreparedStatement preparedStatement = createPreparedStatement(connection, idGame, SELECT_GAME_BY_ID);
-				ResultSet resultSet = preparedStatement.executeQuery()) {
+				ResultSet resultSet = preparedStatement.executeQuery()
+			) {
 
 			if (resultSet.next()) {
-				isExist = resultSet.getInt(1);
+				countOfGames = resultSet.getInt(1);
 			}
 
 		} catch (SQLException ex) {
-			ex.printStackTrace();
-			throw new RuntimeException();
+			throw new RuntimeException(ex);
 		}
-		return isExist;
+		return countOfGames;
 	}
 
-	private Game searchRoundGame(int id) {
-		Game roundGame = null;
-
+	private Game searchGame(int id) {
+		
 		try (Connection connection = dataSource.getConnection();
 				PreparedStatement prepatedStatement = createPreparedStatement(connection, id, SELECT_ALL_COLUMN_BY_ID);
 				ResultSet rs = prepatedStatement.executeQuery()
 			) {
 
-			int[] resultScore = new int[21];
-
-			while (rs.next()) {
-
-				int idGa = rs.getInt(ID);
+			if (rs.next()) {
+				int[] resultScore = new int[21];
+				
 				resultScore[0] = Integer.parseInt(rs.getString(FIRST_ROLL));
 				resultScore[1] = Integer.parseInt(rs.getString(SECOND_ROLL));
 				resultScore[2] = Integer.parseInt(rs.getString(THIRD_ROLL));
@@ -151,20 +147,23 @@ public class DataBaseGameRepository implements GameRepository {
 				resultScore[18] = Integer.parseInt(rs.getString(NINETEENTH_ROLL));
 				resultScore[19] = Integer.parseInt(rs.getString(TWENTYTH_ROLL));
 				resultScore[20] = Integer.parseInt(rs.getString(TWENTH_FIRST_ROLL));
-
-				roundGame = new Game(idGa, resultScore);
+				
+				int idGa = rs.getInt(ID);
+				Game roundGame = new Game(idGa, resultScore);
+				return roundGame;
 			}
 
 		} catch (SQLException ex) {
 			throw new RuntimeException(ex);
 		}
-		return roundGame;
+		return null;
 	}
 
-	private void updateGameScore(Game game) {
+	private void updateGame(Game game) {
 
 		try (Connection conn = dataSource.getConnection();
-				PreparedStatement prepatedStatement = conn.prepareStatement(UPDATE_GAME_SCORE)) {
+				PreparedStatement prepatedStatement = conn.prepareStatement(UPDATE_GAME_SCORE)
+			) {
 
 			int[] gameRolls = game.getRolls();
 
@@ -177,12 +176,11 @@ public class DataBaseGameRepository implements GameRepository {
 			prepatedStatement.executeUpdate();
 
 		} catch (SQLException e) {
-			e.printStackTrace();
-			throw new RuntimeException();
+			throw new RuntimeException(e);
 		}
 	}
 
 	private boolean isNotExistGame(Game game) {
-		return searchRoundGameEx(game.getId()) == 0;
+		return getCountOfGames(game.getId()) == 0;
 	}
 }

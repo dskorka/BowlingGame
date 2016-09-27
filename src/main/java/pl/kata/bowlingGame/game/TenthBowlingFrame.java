@@ -1,4 +1,4 @@
-package pl.kata.bowlingGame.game;
+package pl.kata.bowlinggame.game;
 
 class TenthBowlingFrame extends BowlingFrame {
 

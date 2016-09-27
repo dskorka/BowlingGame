@@ -1,13 +1,13 @@
-package pl.kata.bowlingGame;
+package pl.kata.bowlinggame.repository;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import org.springframework.jdbc.core.RowMapper;
 
-import pl.kata.bowlingGame.game.Game;
+import pl.kata.bowlinggame.game.Game;
 
-public class GameRowMapper implements RowMapper<Game> {
+class GameRowMapper implements RowMapper<Game> {
 
 	@Override
 	public Game mapRow(ResultSet rs, int rowNum) throws SQLException {

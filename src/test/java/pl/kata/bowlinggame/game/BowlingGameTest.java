@@ -1,10 +1,10 @@
-package pl.kata.bowlingGame;
+package pl.kata.bowlinggame.game;
 
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import pl.kata.bowlingGame.game.Game;
+import pl.kata.bowlinggame.game.Game;
 
 
 public class BowlingGameTest {

@@ -1,12 +1,12 @@
-package pl.kata.bowlingGame.repository;
+package pl.kata.bowlinggame.repository;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import pl.kata.bowlingGame.game.Game;
+import pl.kata.bowlinggame.game.Game;
 
 
-public class InMemoryGameRepository implements GameRepository {
+class InMemoryGameRepository implements GameRepository {
 	Map<Integer, String> gameRepository = new HashMap<>();
 
 	

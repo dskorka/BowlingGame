@@ -1,4 +1,4 @@
-package pl.kata.bowlingGameSpring;
+package pl.kata.bowlinggame.repository;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -6,13 +6,13 @@ import org.springframework.jdbc.datasource.embedded.EmbeddedDatabase;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 
-import pl.kata.bowlingGame.repository.GameRepository;
-import pl.kata.bowlingGame.repository.JdbcTemplateGameRepository;
+import pl.kata.bowlinggame.repository.GameRepository;
+import pl.kata.bowlinggame.repository.JdbcTemplateGameRepository;
 
 @Configuration
-public class DataSourceConfigTest {
+class DataSourceTestConfiguration {
 
-	public class JdbcTemplateDataSourceCreator {
+	 class JdbcTemplateDataSourceCreator {
 
 		@Bean
 		public EmbeddedDatabase dataSource() {
