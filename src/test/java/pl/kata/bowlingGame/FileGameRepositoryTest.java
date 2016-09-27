@@ -6,14 +6,14 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import pl.kata.bowlingGame.Game;
+import pl.kata.bowlingGame.game.Game;
 import pl.kata.bowlingGame.repository.FileGameRepository;
 
 
 public class FileGameRepositoryTest {
 	
-	FileGameRepository fileGameRepo;
-	final File filePathToTheGams = new File("D:\\projects\\BowlingGame\\src\\main\\resources\\gameScore.txt");
+	FileGameRepository fileGameRepo; 
+	final File filePathToTheGams = new File("D:\\projects\\git\\BowlingGame\\src\\main\\resources\\gameScore.txt");
 	
 	@Before
 	public void setUp(){

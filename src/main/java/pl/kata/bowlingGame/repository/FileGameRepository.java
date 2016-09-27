@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-import pl.kata.bowlingGame.Game;
+import pl.kata.bowlingGame.game.Game;
 
 public class FileGameRepository implements GameRepository {
 	

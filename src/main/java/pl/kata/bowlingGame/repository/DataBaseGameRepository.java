@@ -7,7 +7,7 @@ import java.sql.SQLException;
 
 import javax.sql.DataSource;
 
-import pl.kata.bowlingGame.Game;
+import pl.kata.bowlingGame.game.Game;
 
 public class DataBaseGameRepository implements GameRepository {
 

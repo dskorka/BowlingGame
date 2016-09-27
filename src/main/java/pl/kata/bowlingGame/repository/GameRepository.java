@@ -1,6 +1,6 @@
 package pl.kata.bowlingGame.repository;
 
-import pl.kata.bowlingGame.Game;
+import pl.kata.bowlingGame.game.Game;
 
 
 public interface GameRepository {

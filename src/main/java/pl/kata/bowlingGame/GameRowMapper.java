@@ -5,6 +5,8 @@ import java.sql.SQLException;
 
 import org.springframework.jdbc.core.RowMapper;
 
+import pl.kata.bowlingGame.game.Game;
+
 public class GameRowMapper implements RowMapper<Game> {
 
 	@Override

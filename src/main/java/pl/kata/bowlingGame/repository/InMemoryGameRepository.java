@@ -3,7 +3,7 @@ package pl.kata.bowlingGame.repository;
 import java.util.HashMap;
 import java.util.Map;
 
-import pl.kata.bowlingGame.Game;
+import pl.kata.bowlingGame.game.Game;
 
 
 public class InMemoryGameRepository implements GameRepository {
@@ -25,8 +25,19 @@ public class InMemoryGameRepository implements GameRepository {
 	
 	private Game fromString(String gameAsString) {
 		int [] numberTableRolls = convertStringToIntTable(gameAsString);
-		int idGame = numberTableRolls[0]; 			
-		return new Game(idGame, numberTableRolls);
+		int idGame = numberTableRolls[0];
+		
+		int[] gameScore = extractedGameScore(numberTableRolls);
+		return new Game(idGame, gameScore);
+	}
+
+	private int [] extractedGameScore(int[] numberTableRolls) {
+		int gameScore[] = new int[numberTableRolls.length-1];
+		
+		for(int i=0; i <gameScore.length; i++){
+			gameScore[i] = numberTableRolls[i+1];
+		}
+		return gameScore;
 	}
 	
 

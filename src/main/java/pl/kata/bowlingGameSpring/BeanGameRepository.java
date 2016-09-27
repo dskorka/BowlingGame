@@ -2,7 +2,7 @@ package pl.kata.bowlingGameSpring;
 
 import org.springframework.stereotype.Component;
 
-import pl.kata.bowlingGame.Game;
+import pl.kata.bowlingGame.game.Game;
 import pl.kata.bowlingGame.repository.GameRepository;
 @Component
 public class BeanGameRepository implements GameRepository {

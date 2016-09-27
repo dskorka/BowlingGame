@@ -4,7 +4,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import pl.kata.bowlingGame.Game;
+import pl.kata.bowlingGame.game.Game;
 
 
 public class BowlingGameTest {
@@ -51,7 +51,7 @@ public class BowlingGameTest {
 	// when
 		int score = game.score();
 	// then
-		Assert.assertEquals(150, score);
+		Assert.assertEquals(100, score);
 	}
 	
 	/*@Test

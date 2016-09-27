@@ -1,23 +1,25 @@
 package pl.kata.bowlingGame;
 
+import javax.sql.DataSource;
+
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 
-import pl.kata.bowlingGame.Game;
+import pl.kata.bowlingGame.game.Game;
 import pl.kata.bowlingGame.repository.JdbcTemplateGameRepository;
 
 public class JdbcTemplateGameRepositoryTest {
 	
-	@Autowired
+	
 	JdbcTemplateGameRepository jdbcTemplateGameRepository;
 
 	@Before
 	public void setUp() {
-		//DataSource dataSource = JdbcTemplateDataSourceCreator.createEmbeddedDatabase();
-		//jdbcTemplateGameRepository = new JdbcTemplateGameRepository(dataSource);
+		DataSource dataSource = JdbcTemplateDataSourceCreator.createEmbeddedDatabase();
+		jdbcTemplateGameRepository = new JdbcTemplateGameRepository(dataSource);
 	}
+	
 
 	@Test
 	public void should_save_and_load_game_of_data_base() {

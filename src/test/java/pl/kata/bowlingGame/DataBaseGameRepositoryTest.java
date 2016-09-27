@@ -6,7 +6,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import pl.kata.bowlingGame.Game;
+import pl.kata.bowlingGame.game.Game;
 import pl.kata.bowlingGame.repository.DataBaseGameRepository;
 
 public class DataBaseGameRepositoryTest {

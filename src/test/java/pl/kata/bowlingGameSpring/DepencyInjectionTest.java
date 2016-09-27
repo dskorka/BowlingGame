@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import pl.kata.bowlingGame.Game;
+import pl.kata.bowlingGame.game.Game;
 import pl.kata.bowlingGame.repository.GameRepository;
 import pl.kata.bowlingGameSpring.GameService;
 

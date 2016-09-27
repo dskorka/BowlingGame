@@ -4,8 +4,9 @@ import javax.sql.DataSource;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 
-import pl.kata.bowlingGame.Game;
 import pl.kata.bowlingGame.GameRowMapper;
+import pl.kata.bowlingGame.game.Game;
+
 
 public class JdbcTemplateGameRepository implements GameRepository {
 	
@@ -65,14 +66,10 @@ public class JdbcTemplateGameRepository implements GameRepository {
 	
 	private static final String SEARCH_GAME_BY_ID = "select * from " 
 								+ TABLE_NAME + " where " + ID + " = ?";
-	
-	
-	public JdbcTemplateGameRepository(DataSource dataSource) {
+
+	public JdbcTemplateGameRepository(DataSource dataSource){
 		this.jdbcTemplate = new JdbcTemplate(dataSource);
 	}
-	
-
-	
 	
 	@Override
 	public void save(Game game) {
