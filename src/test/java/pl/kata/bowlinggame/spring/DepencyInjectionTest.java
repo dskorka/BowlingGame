@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import pl.kata.bowlinggame.conf.GameRepositoryImpl;
 import pl.kata.bowlinggame.conf.GameService;
 import pl.kata.bowlinggame.game.Game;
 import pl.kata.bowlinggame.repository.GameRepository;
@@ -30,7 +31,7 @@ public class DepencyInjectionTest {
 
 		@Bean
 		public GameRepository gameRepository(){
-			return new GameRepository() {
+			return new GameRepositoryImpl() {
 				
 				@Override
 				public void save(Game game) {
@@ -47,7 +48,7 @@ public class DepencyInjectionTest {
 		}
 				
 		@Bean
-		GameService gameService(GameRepository gameRepository){
+		GameService gameService(GameRepositoryImpl gameRepository){
 			return new GameService(gameRepository);
 		}
 	}
