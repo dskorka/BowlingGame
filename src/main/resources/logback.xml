@@ -11,14 +11,10 @@
 		<appender-ref ref="STDOUT" />
 	</root>
 
-	<logger name="org.springframework.bean" level="INFO" additivity="false">
-		<appender-ref ref="STDOUT" />
-	</logger>
-
-	<logger name="pl.kata.bowlingGameSpring" level="INFO"
-		additivity="false">
-		<appender-ref ref="STDOUT" />
-	</logger>
+	<logger name="org.springframework" level="INFO" />
+	<logger name="org.springframework.web" level="INFO" />
+	<logger name="pl.kata.bowlingGameSpring" level="INFO" />
+	<logger name="org.thymeleaf" level="WARN" />
 	
 </configuration>
 
