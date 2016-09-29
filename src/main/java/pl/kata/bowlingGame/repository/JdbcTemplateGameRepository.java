@@ -1,18 +1,20 @@
 package pl.kata.bowlinggame.repository;
 
-import javax.sql.DataSource;
-
-import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcOperations;
+import org.springframework.stereotype.Repository;
 
 import pl.kata.bowlinggame.game.Game;
 
 
+@Repository
 public class JdbcTemplateGameRepository implements GameRepository {
 	
-	private JdbcTemplate jdbcTemplate;
+	private final JdbcOperations jdbcTemplate;	
 
-	public JdbcTemplateGameRepository(DataSource dataSource){
-		this.jdbcTemplate = new JdbcTemplate(dataSource);
+	@Autowired
+	public JdbcTemplateGameRepository(JdbcOperations jdbcTemplate){
+		this.jdbcTemplate = jdbcTemplate;
 	}
 	
 	@Override

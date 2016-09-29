@@ -7,12 +7,15 @@ import java.sql.SQLException;
 
 import javax.sql.DataSource;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import pl.kata.bowlinggame.game.Game;
 
 public class SimpleJdbcGameRepository implements GameRepository {
 
 	private final DataSource dataSource;
 
+	@Autowired
 	public SimpleJdbcGameRepository(DataSource dataSource) {
 		this.dataSource = dataSource;
 	}
