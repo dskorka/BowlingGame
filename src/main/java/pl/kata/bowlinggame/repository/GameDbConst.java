@@ -1,6 +1,6 @@
 package pl.kata.bowlinggame.repository;
 
-class StructureDataBase {
+class GameDbConst {
 	
 	static final String TABLE_NAME = "game_rolls";
 
@@ -56,8 +56,8 @@ class StructureDataBase {
 			" where " + ID + " = ?";
 	
 	static final String GET_COUNT_BY_ID_GAME = "select count(*) from " 
-			+ StructureDataBase.TABLE_NAME + " where " + StructureDataBase.ID + " = ?";
+			+ GameDbConst.TABLE_NAME + " where " + GameDbConst.ID + " = ?";
 	
 	static final String SEARCH_GAME_BY_ID = "select * from " 
-			+ StructureDataBase.TABLE_NAME + " where " + StructureDataBase.ID + " = ?";
+			+ GameDbConst.TABLE_NAME + " where " + GameDbConst.ID + " = ?";
 }

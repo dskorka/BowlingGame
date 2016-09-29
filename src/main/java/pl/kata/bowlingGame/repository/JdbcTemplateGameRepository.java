@@ -7,7 +7,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import pl.kata.bowlinggame.game.Game;
 
 
-class JdbcTemplateGameRepository implements GameRepository {
+public class JdbcTemplateGameRepository implements GameRepository {
 	
 	private JdbcTemplate jdbcTemplate;
 
@@ -26,7 +26,7 @@ class JdbcTemplateGameRepository implements GameRepository {
 	
 	@Override
 	public Game load(int idGame) {
-		Game game = jdbcTemplate.queryForObject(StructureDataBase.SEARCH_GAME_BY_ID, new Object[]{idGame}, new GameRowMapper());
+		Game game = jdbcTemplate.queryForObject(GameDbConst.SEARCH_GAME_BY_ID, new Object[]{idGame}, new GameRowMapper());
 		return game;
 	}
 	
@@ -35,7 +35,7 @@ class JdbcTemplateGameRepository implements GameRepository {
 	}
 
 	private int getCountById(int id) {
-		int rowCount = jdbcTemplate.queryForObject(StructureDataBase.GET_COUNT_BY_ID_GAME, Integer.class, id);
+		int rowCount = jdbcTemplate.queryForObject(GameDbConst.GET_COUNT_BY_ID_GAME, Integer.class, id);
 		return rowCount;
 	}
 	
@@ -49,7 +49,7 @@ class JdbcTemplateGameRepository implements GameRepository {
 			listObject[i] = rolls[i - 1];
 		}
 
-		jdbcTemplate.update(StructureDataBase.SAVE_GAME_SCORE, listObject);
+		jdbcTemplate.update(GameDbConst.SAVE_GAME_SCORE, listObject);
 	}
 
 	private void updateGame(Game game) {
@@ -62,6 +62,6 @@ class JdbcTemplateGameRepository implements GameRepository {
 		}
 		listObject[21] = game.getId();
 
-		jdbcTemplate.update(StructureDataBase.UPDATE_GAME_SCORE, listObject);
+		jdbcTemplate.update(GameDbConst.UPDATE_GAME_SCORE, listObject);
 	}
 }
