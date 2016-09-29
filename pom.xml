@@ -67,23 +67,3 @@
 	</build>
 
 </project>
-
-
-
-<!-- 	<dependencies>
-		<dependency>
-			<groupId>ch.qos.logback</groupId>
-			<artifactId>logback-classic</artifactId>
-			<version>${logback.version}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>jcl-over-slf4j</artifactId>
-			<version>${jcl.slf4j.version}</version>
-		</dependency>
-
-	</dependencies> -->
-	
-	
-	

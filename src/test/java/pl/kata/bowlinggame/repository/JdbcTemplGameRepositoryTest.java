@@ -19,7 +19,7 @@ public class JdbcTemplGameRepositoryTest {
 	@Autowired
 	JdbcOperations jdbcOperations;
 	
-	private JdbcTemplateGameRepository templateGameRepository;
+	private GameRepository templateGameRepository;
 	
 	
 	@Before
