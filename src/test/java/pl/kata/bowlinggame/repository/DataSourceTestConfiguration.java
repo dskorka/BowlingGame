@@ -13,22 +13,19 @@ import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 @Configuration
 class DataSourceTestConfiguration {
 
-	 class JdbcTemplateDataSourceCreator {
-
-		@Bean
-		public EmbeddedDatabase dataSource() {
-			EmbeddedDatabaseBuilder builder = new EmbeddedDatabaseBuilder();
-			return builder
-					.setType(EmbeddedDatabaseType.H2)
-					.setName("ds")
-					.addScript("classpath:db/create_table.sql")
-					.build();
-		}
-		
-		@Bean
-		public JdbcOperations jdbcTemplate(DataSource dataSource) {
-			return new JdbcTemplate(dataSource);
-		}
-
+	@Bean
+	public EmbeddedDatabase dataSource() {
+		EmbeddedDatabaseBuilder builder = new EmbeddedDatabaseBuilder();
+		return builder
+				.setType(EmbeddedDatabaseType.H2)
+				.setName("ds")
+				.addScript("classpath:db/create_table.sql")
+				.build();
 	}
+
+	@Bean
+	public JdbcOperations jdbcTemplate(DataSource dataSource) {
+		return new JdbcTemplate(dataSource);
+	}
+
 }

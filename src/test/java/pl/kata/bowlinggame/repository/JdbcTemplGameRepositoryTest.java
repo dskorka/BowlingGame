@@ -1,41 +1,38 @@
 package pl.kata.bowlinggame.repository;
 
-import javax.sql.DataSource;
-
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.JdbcOperations;
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.datasource.embedded.EmbeddedDatabase;
-import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
-import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import pl.kata.bowlinggame.game.Game;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-//@ContextConfiguration(classes = JdbcTemplGameRepositoryTest.Conf.class)
+@ContextConfiguration(classes = DataSourceTestConfiguration.class)
+
 public class JdbcTemplGameRepositoryTest {
 	
-	//@Autowired
-	//GameRepository gameRepository;
+	@Autowired
+	JdbcOperations jdbcOperations;
+	
+	private JdbcTemplateGameRepository templateGameRepository;
 	
 	
-	/*public JdbcTemplGameRepositoryTest(GameRepository gameRepository) {
-		this.gameRepository = gameRepository;
-	}*/
+	@Before
+	public void setUp(){
+		templateGameRepository = new JdbcTemplateGameRepository(jdbcOperations);
+	}
 	
 	
 	@Test
 	public void should_init_jdbc_template_game_repository(){
-		//Assert.assertNotNull(gameRepository);
+		Assert.assertNotNull(templateGameRepository);
 	}
-	/*
+
 	@Test
 	public void should_save_and_load_game_of_data_base() {
 		// given
@@ -45,8 +42,8 @@ public class JdbcTemplGameRepositoryTest {
 		}
 
 		// when
-		gameRepository.save(testGame);
-		Game gameOfRepository = gameRepository.load(testGame.getId());
+		templateGameRepository.save(testGame);
+		Game gameOfRepository = templateGameRepository.load(testGame.getId());
 
 		// then
 		int score = gameOfRepository.score();
@@ -62,8 +59,8 @@ public class JdbcTemplGameRepositoryTest {
 		}
 
 		// when
-		gameRepository.save(testGame);
-		Game gameOfRepo = gameRepository.load(testGame.getId());
+		templateGameRepository.save(testGame);
+		Game gameOfRepo = templateGameRepository.load(testGame.getId());
 
 		// then
 		Assert.assertEquals(testGame.getId(), gameOfRepo.getId());
@@ -76,36 +73,19 @@ public class JdbcTemplGameRepositoryTest {
 		for (int i = 0; i < 10; i++) {
 			testGame.roll(2);
 		}
-		gameRepository.save(testGame);
+		templateGameRepository.save(testGame);
 
 		for (int i = 0; i < 10; i++) {
 			testGame.roll(1);
 		}
-		gameRepository.save(testGame);
+		templateGameRepository.save(testGame);
 		// when
 
-		Game gameOfRepo = gameRepository.load(testGame.getId());
+		Game gameOfRepo = templateGameRepository.load(testGame.getId());
 
 		// then
 		Assert.assertEquals(30, gameOfRepo.score());
-	}*/
-	
-	@Configuration
-	class Conf {
-
-		/*@Bean
-		public EmbeddedDatabase dataSource() {
-			EmbeddedDatabaseBuilder builder = new EmbeddedDatabaseBuilder();
-			return builder
-					.setType(EmbeddedDatabaseType.H2)
-					.setName("ds").addScript("classpath:db/create_table.sql")
-					.build();
-		}
-
-		@Bean
-		public JdbcOperations jdbcTemplate(DataSource dataSource) {
-			return new JdbcTemplate(dataSource);
-		}*/
-
 	}
+	
+	
 }
