@@ -19,8 +19,8 @@ public class DefaultGameFinder implements GameFinder {
 	}
 
 	@Override
-	public List<GameViewModel> findAll() {
-		return jdbc.query(GameDbConst.SELECT_ALL_GAMES, new GameViewModelRowMapper());
+	public List<GameViewModel> findAll(int columnNumberSort) {
+		return jdbc.query(GameDbConst.SELECT_ALL_GAMES,new Object[] { columnNumberSort }, new GameViewModelRowMapper());
 	}
 
 }

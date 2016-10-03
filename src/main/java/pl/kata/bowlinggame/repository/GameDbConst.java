@@ -60,10 +60,11 @@ class GameDbConst {
 			+ " where " + ID + " = ?";
 	
 	static final String GET_COUNT_BY_ID_GAME = "select count(*) from " 
-			+ GameDbConst.TABLE_NAME + " where " + GameDbConst.ID + " = ?";
+			+ TABLE_NAME + " where " + ID + " = ?";
 	
 	static final String SEARCH_GAME_BY_ID = "select * from " 
-			+ GameDbConst.TABLE_NAME + " where " + GameDbConst.ID + " = ?";
+			+ TABLE_NAME + " where " + ID + " = ?";
 
-	static final String SELECT_ALL_GAMES = "select * from " + GameDbConst.TABLE_NAME;
+	static final String SELECT_ALL_GAMES = "select " + ID + " , " + SCORE + " , " + INSERT_TIME
+			+ " from " + TABLE_NAME + " order by = ?";
 }

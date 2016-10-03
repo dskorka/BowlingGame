@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import pl.kata.bowlinggame.game.GameViewModel;
 import pl.kata.bowlinggame.repository.GameFinder;
+import pl.kata.bowlinggame.repository.SortParameter;
 
 @Controller
 public class DashboardController {
@@ -23,9 +24,11 @@ public class DashboardController {
 	@RequestMapping("/")
 	public String game(Model model) {
 		
-		final List<GameViewModel> games = gameFinder.findAll();
+		final List<GameViewModel> games = gameFinder.findAll(1);
 		model.addAttribute("gameBasicData", games);
 		
 		return "dashboard";
 	}
+	
+	
 }
