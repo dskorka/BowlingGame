@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-	  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
-	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 
 
 <head lang="en">
@@ -20,9 +20,34 @@
 			<a href="/playGame" th:href="@{/playGame}"
 				class="btn btn-large btn-success">Uruchom grę</a>
 		</p>
-	
-	
-</div>
+
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Score</th>
+					<th>Date game</th>
+					<th> </th>
+				</tr>
+			</thead>
+
+			<tbody>
+
+				<tr>
+					<td th:each="game : ${gameBasicData}">
+
+						<p th:text="game.getId()"></p>
+						<p th:text="game.getScore()"></p>
+						<p th:text="game.getDateGame()"></p>
+						<p>
+							<a href="/gameDetails/${game.getId()}" th:href="@{/gameDetails}">Szczegóły</a>
+						</p>
+					</td>
+
+				</tr>
+			</tbody>
+		</table>
+	</div>
 
 </body>
 </html>

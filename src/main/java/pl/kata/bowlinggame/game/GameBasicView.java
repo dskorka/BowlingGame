@@ -1,27 +1,33 @@
 package pl.kata.bowlinggame.game;
 
-import java.time.LocalTime;
-
 public class GameBasicView {
 
 	private int id;
-	private LocalTime localTime;
+	private int score;
+	private String dateGame;
 
 	public int getId() {
 		return id;
 	}
 
-	public LocalTime getLocalTime() {
-		return localTime;
+	public int getScore() {
+		return score;
 	}
 
-	public GameBasicView(int id, LocalTime localTime) {
+	public String getDateGame() {
+		return dateGame;
+	}
+
+	public GameBasicView(int id, int score, String insert_date) {
+		super();
 		this.id = id;
-		this.localTime = localTime;
+		this.score = score;
+		this.dateGame = insert_date;
 	}
 
 	@Override
 	public String toString() {
-		return "GameBasicView [id=" + id + ", localTime=" + localTime + "]";
+		return "GameBasicView [id=" + id + ", score=" + score + ", localTime=" + dateGame + "]";
 	}
+
 }
