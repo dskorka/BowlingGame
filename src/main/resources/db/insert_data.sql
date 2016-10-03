@@ -22,5 +22,5 @@ select * from CSVREAD('classpath:db/games.csv'
 	,nineteenth_roll
 	,twentyth_roll
 	,twenty_first_roll
-	,date_time
+	,insert_time
 ');

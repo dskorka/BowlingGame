@@ -1,10 +1,12 @@
 package pl.kata.bowlinggame.game;
 
+import java.time.LocalDate;
+
 public class GameViewModel {
 
 	private int id;
 	private int score;
-	private String dateGame;
+	private LocalDate dateGame;
 
 	public int getId() {
 		return id;
@@ -14,11 +16,11 @@ public class GameViewModel {
 		return score;
 	}
 
-	public String getDateGame() {
+	public LocalDate getDateGame() {
 		return dateGame;
 	}
 
-	public GameViewModel(int id, int score, String insert_date) {
+	public GameViewModel(int id, int score, LocalDate insert_date) {
 		super();
 		this.id = id;
 		this.score = score;

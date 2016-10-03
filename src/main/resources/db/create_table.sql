@@ -22,7 +22,7 @@ CREATE TABLE IF NOT EXISTS game_rolls
 		nineteenth_roll 	INT NOT NULL,
 		twentyth_roll 		INT NOT NULL,
 		twenty_first_roll 	INT NOT NULL,
-		insert_time			DATETIME,
+		insert_time			DATETIME NOT NULL,
 		PRIMARY KEY (id)
 	);
 		

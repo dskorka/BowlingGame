@@ -3,6 +3,7 @@ package pl.kata.bowlinggame.repository;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 
 import org.springframework.jdbc.core.RowMapper;
 
@@ -37,8 +38,8 @@ public class GameViewModelRowMapper implements RowMapper<GameViewModel> {
 				rs.getInt(GameDbConst.TWELFTH_ROLL) + 
 				rs.getInt(GameDbConst.TWENTH_FIRST_ROLL);
 		
-		String insert_date = rs.getString(GameDbConst.INSERT_TIME);
-		
+		LocalDate insert_date = rs.getDate(GameDbConst.INSERT_TIME).toLocalDate();
+	
 		return new GameViewModel(id, score, insert_date);
 	}
 }
