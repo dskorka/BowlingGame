@@ -147,6 +147,9 @@ public class Game {
 	public int score() {
 		int resultGame = 0;
 		for (BowlingFrame bowlingTemp : bowlingFrame) {
+			if(bowlingTemp.getFirstRolle() == null){
+				return resultGame;
+			}
 			resultGame += bowlingTemp.getScore();
 			resultGame += bowlingTemp.getBonus();
 		}

@@ -26,6 +26,7 @@ class GameDbConst {
 	static final String NINETEENTH_ROLL = "nineteenth_roll";
 	static final String TWENTYTH_ROLL = "twentyth_roll";
 	static final String TWENTH_FIRST_ROLL = "twenty_first_roll";
+	static final String SCORE = "score";
 	static final String INSERT_TIME = "insert_time";
 
 	
@@ -41,8 +42,8 @@ class GameDbConst {
 			+ SIXTEENTH_ROLL + " , " + SEVENTEENTH_ROLL + " , " 
 			+ EIGHTEENTH_ROLL + " , " + NINETEENTH_ROLL + " , "
 			+ TWENTYTH_ROLL + " , " + TWENTH_FIRST_ROLL + " , "
-			+ INSERT_TIME +
-			" ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?, now())";
+			+ SCORE + " , " + INSERT_TIME +
+			" ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?, now())";
 	
 	static final String UPDATE_GAME_SCORE = "update " + TABLE_NAME + " set " 
 			+ FIRST_ROLL + " = ?," + SECOND_ROLL + " = ?," 
@@ -55,8 +56,8 @@ class GameDbConst {
 			+ FIFTEENTH_ROLL + " = ?," + SIXTEENTH_ROLL + " = ?," 
 			+ SEVENTEENTH_ROLL + " = ?," + EIGHTEENTH_ROLL + " = ?," 
 			+ NINETEENTH_ROLL + " = ?," + TWENTYTH_ROLL + " = ?," 
-			+ TWENTH_FIRST_ROLL + " = ?" +
-			" where " + ID + " = ?";
+			+ TWENTH_FIRST_ROLL + " = ?,"  + SCORE + " = ?"
+			+ " where " + ID + " = ?";
 	
 	static final String GET_COUNT_BY_ID_GAME = "select count(*) from " 
 			+ GameDbConst.TABLE_NAME + " where " + GameDbConst.ID + " = ?";

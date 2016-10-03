@@ -42,7 +42,7 @@ public class JdbcTemplateGameRepository implements GameRepository {
 	}
 	
 	private void writeGame(Game game) {
-		Object[] listObject = new Object[22];
+		Object[] listObject = new Object[23];
 		
 		listObject[0] = game.getId();
 
@@ -50,19 +50,21 @@ public class JdbcTemplateGameRepository implements GameRepository {
 		for (int i = 1; i < 22; i++) {
 			listObject[i] = rolls[i - 1];
 		}
+		listObject[22] = game.score();
 
 		jdbcTemplate.update(GameDbConst.SAVE_GAME_SCORE, listObject);
 	}
 
 	private void updateGame(Game game) {
 		
-		Object[] listObject = new Object[22];
+		Object[] listObject = new Object[23];
 		int[] rolls = game.getRolls();
 		
 		for (int i = 0; i < 21; i++) {
 			listObject[i] = rolls[i];
 		}
-		listObject[21] = game.getId();
+		listObject[21] = game.score();
+		listObject[22] = game.getId();
 
 		jdbcTemplate.update(GameDbConst.UPDATE_GAME_SCORE, listObject);
 	}

@@ -45,6 +45,8 @@ public class SimpleJdbcGameRepository implements GameRepository {
 			for (int i = 0; i < gameRolls.length; i++) {
 				prepatedStatement.setInt(i + 2, gameRolls[i]);
 			}
+			prepatedStatement.setInt(23, game.score());
+			
 			prepatedStatement.executeUpdate();
 
 		} catch (SQLException e) {
@@ -131,7 +133,8 @@ public class SimpleJdbcGameRepository implements GameRepository {
 			}
 
 			int id = game.getId();
-			prepatedStatement.setInt(22, id);
+			prepatedStatement.setInt(22, game.score());
+			prepatedStatement.setInt(23, id);
 			prepatedStatement.executeUpdate();
 
 		} catch (SQLException e) {
