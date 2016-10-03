@@ -20,6 +20,7 @@ public class DataSourceConfiguration {
 				.setType(EmbeddedDatabaseType.H2)
 				.setName("ds")
 				.addScript("classpath:db/create_table.sql")
+				.addScript("classpath:db/insert_data.sql")
 				.build();
 	}
 

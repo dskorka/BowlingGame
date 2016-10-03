@@ -27,7 +27,7 @@ public class GameController {
 	@RequestMapping("/playGame")
 	public String game(Model model) {
 		Random rd = new Random();
-		Game game = new Game(rd.nextInt(10));
+		Game game = new Game(rd.nextInt(100));
 
 		for (int i = 0; i < 20; i++) {
 			game.roll(rd.nextInt(10));

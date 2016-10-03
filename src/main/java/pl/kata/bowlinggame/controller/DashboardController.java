@@ -9,17 +9,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import pl.kata.bowlinggame.game.GameBasicView;
 import pl.kata.bowlinggame.repository.GameFinder;
-import pl.kata.bowlinggame.repository.GameRepository;
 
 @Controller
 public class DashboardController {
 
-	GameRepository gameRepository;
 	GameFinder gameFinder;
 	
 	@Autowired
-	public DashboardController(GameRepository gameRepository,GameFinder gameFinder) {
-		this.gameRepository = gameRepository;
+	public DashboardController(GameFinder gameFinder) {
 		this.gameFinder = gameFinder;
 	}
 	

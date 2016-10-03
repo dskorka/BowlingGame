@@ -33,18 +33,18 @@
 
 			<tbody>
 
-				<tr>
-					<td th:each="game : ${gameBasicData}">
+				
+					<tr th:each="game : ${gameBasicData}">
 
-						<p th:text="${game.getId()}"></p>
-						<p th:text="${game.getScore()}"></p>
-						<p th:text="${game.getDateGame()}"></p>
-						<p>  
-							<a th:href="@{|/gameDetails/${game.getId()}|}">Szczegóły</a>
-						</p>
-					</td>
+						<td th:text="${game.id}"></td>
+						<td th:text="${game.score}"></td>
+						<td th:text="${game.dateGame}"></td>
+					  	<td>  
+							<a th:href="@{|/gameDetails/${game.id}|}">Szczegóły</a>
+						</td>
+					</tr>
 
-				</tr>
+
 			</tbody>
 		</table>
 	</div>
