@@ -1,6 +1,6 @@
 package pl.kata.bowlinggame.game;
 
-public class GameBasicView {
+public class GameViewModel {
 
 	private int id;
 	private int score;
@@ -18,7 +18,7 @@ public class GameBasicView {
 		return dateGame;
 	}
 
-	public GameBasicView(int id, int score, String insert_date) {
+	public GameViewModel(int id, int score, String insert_date) {
 		super();
 		this.id = id;
 		this.score = score;
@@ -29,5 +29,4 @@ public class GameBasicView {
 	public String toString() {
 		return "GameBasicView [id=" + id + ", score=" + score + ", localTime=" + dateGame + "]";
 	}
-
 }

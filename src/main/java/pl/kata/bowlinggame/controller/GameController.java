@@ -26,6 +26,7 @@ public class GameController {
 
 	@RequestMapping("/playGame")
 	public String game(Model model) {
+		
 		Random rd = new Random();
 		Game game = new Game(rd.nextInt(100));
 
@@ -53,6 +54,5 @@ public class GameController {
 		model.addAttribute("score", searchGame.score());
 		
 		return "game";
-		
 	}
 }

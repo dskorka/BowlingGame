@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcOperations;
 import org.springframework.stereotype.Repository;
 
-import pl.kata.bowlinggame.game.GameBasicView;
+import pl.kata.bowlinggame.game.GameViewModel;
 
 @Repository
 public class DefaultGameFinder implements GameFinder {
@@ -19,8 +19,8 @@ public class DefaultGameFinder implements GameFinder {
 	}
 
 	@Override
-	public List<GameBasicView> findAll() {
-		return jdbc.query(GameDbConst.SELECT_ALL_GAMES, new GameBasicDataRowMapper());
+	public List<GameViewModel> findAll() {
+		return jdbc.query(GameDbConst.SELECT_ALL_GAMES, new GameViewModelRowMapper());
 	}
 
 }

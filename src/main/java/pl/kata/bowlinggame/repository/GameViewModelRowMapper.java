@@ -6,12 +6,12 @@ import java.sql.SQLException;
 
 import org.springframework.jdbc.core.RowMapper;
 
-import pl.kata.bowlinggame.game.GameBasicView;
+import pl.kata.bowlinggame.game.GameViewModel;
 
-public class GameBasicDataRowMapper implements RowMapper<GameBasicView> {
+public class GameViewModelRowMapper implements RowMapper<GameViewModel> {
 
 	@Override
-	public GameBasicView mapRow(ResultSet rs, int rowNum) throws SQLException {
+	public GameViewModel mapRow(ResultSet rs, int rowNum) throws SQLException {
 		
 		int id = rs.getInt(GameDbConst.ID);
 		
@@ -37,8 +37,8 @@ public class GameBasicDataRowMapper implements RowMapper<GameBasicView> {
 				rs.getInt(GameDbConst.TWELFTH_ROLL) + 
 				rs.getInt(GameDbConst.TWENTH_FIRST_ROLL);
 		
-		String insert_date = "2016";  //rs.getString(GameDbConst.INSERT_DATE);
+		String insert_date = rs.getString(GameDbConst.INSERT_TIME);
 		
-		return new GameBasicView(id, score, insert_date);
+		return new GameViewModel(id, score, insert_date);
 	}
 }
