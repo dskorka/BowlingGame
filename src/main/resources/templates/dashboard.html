@@ -39,8 +39,8 @@
 						<p th:text="${game.getId()}"></p>
 						<p th:text="${game.getScore()}"></p>
 						<p th:text="${game.getDateGame()}"></p>
-						<p>
-							<a href="/gameDetails/${game.getId()}" th:href="/gameDetails/${game.getId()}">Szczegóły</a>
+						<p>  
+							<a th:href="@{|/gameDetails/${game.getId()}|}">Szczegóły</a>
 						</p>
 					</td>
 

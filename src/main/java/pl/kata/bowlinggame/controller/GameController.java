@@ -5,6 +5,7 @@ import java.util.Random;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import pl.kata.bowlinggame.game.Game;
@@ -41,5 +42,17 @@ public class GameController {
 		model.addAttribute("score", gamesOfRepo.score());
 
 		return "game";
+	}
+	
+	@RequestMapping("/gameDetails/{id}")
+	public String getGameDetails(@PathVariable("id") int id, Model model){
+		Game searchGame = gameRepository.load(id);
+		
+		model.addAttribute("id", searchGame.getId());
+		model.addAttribute("rolls", gameService.prepareFramesWithScores(searchGame.getRolls()));
+		model.addAttribute("score", searchGame.score());
+		
+		return "game";
+		
 	}
 }
