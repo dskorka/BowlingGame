@@ -36,11 +36,11 @@
 				<tr>
 					<td th:each="game : ${gameBasicData}">
 
-						<p th:text="game.getId()"></p>
-						<p th:text="game.getScore()"></p>
-						<p th:text="game.getDateGame()"></p>
+						<p th:text="${game.getId()}"></p>
+						<p th:text="${game.getScore()}"></p>
+						<p th:text="${game.getDateGame()}"></p>
 						<p>
-							<a href="/gameDetails/${game.getId()}" th:href="@{/gameDetails}">Szczegóły</a>
+							<a href="/gameDetails/${game.getId()}" th:href="/gameDetails/${game.getId()}">Szczegóły</a>
 						</p>
 					</td>
 

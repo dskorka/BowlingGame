@@ -26,7 +26,7 @@ class GameDbConst {
 	static final String NINETEENTH_ROLL = "nineteenth_roll";
 	static final String TWENTYTH_ROLL = "twentyth_roll";
 	static final String TWENTH_FIRST_ROLL = "twenty_first_roll";
-	static final String INSERT_DATE = "insert_date";
+
 	
 	static final String SAVE_GAME_SCORE = " insert into " + TABLE_NAME +
 			" ( " + ID + " , " + FIRST_ROLL + " , "
@@ -39,9 +39,8 @@ class GameDbConst {
 			+ FOURTEENTH_ROLL + " , " + FIFTEENTH_ROLL + " , "
 			+ SIXTEENTH_ROLL + " , " + SEVENTEENTH_ROLL + " , " 
 			+ EIGHTEENTH_ROLL + " , " + NINETEENTH_ROLL + " , "
-			+ TWENTYTH_ROLL + " , " + TWENTH_FIRST_ROLL + " , "
-			+ INSERT_DATE +
-			" ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?, now())";
+			+ TWENTYTH_ROLL + " , " + TWENTH_FIRST_ROLL + 
+			" ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 	
 	static final String UPDATE_GAME_SCORE = "update " + TABLE_NAME + " set " 
 			+ FIRST_ROLL + " = ?," + SECOND_ROLL + " = ?," 
@@ -63,5 +62,5 @@ class GameDbConst {
 	static final String SEARCH_GAME_BY_ID = "select * from " 
 			+ GameDbConst.TABLE_NAME + " where " + GameDbConst.ID + " = ?";
 
-	static final String SELECT_ALL_GAMES = null;
+	static final String SELECT_ALL_GAMES = "select * from " + GameDbConst.TABLE_NAME;
 }

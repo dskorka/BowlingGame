@@ -25,7 +25,10 @@ public class DashboardController {
 	
 	@RequestMapping("/")
 	public String game(Model model) {
+		
 		final List<GameBasicView> games = gameFinder.findAll();
+		model.addAttribute("gameBasicData", games);
+		
 		return "dashboard";
 	}
 }

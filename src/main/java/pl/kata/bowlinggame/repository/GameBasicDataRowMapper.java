@@ -37,7 +37,7 @@ public class GameBasicDataRowMapper implements RowMapper<GameBasicView> {
 				rs.getInt(GameDbConst.TWELFTH_ROLL) + 
 				rs.getInt(GameDbConst.TWENTH_FIRST_ROLL);
 		
-		String insert_date = rs.getString(GameDbConst.INSERT_DATE);
+		String insert_date = "2016";  //rs.getString(GameDbConst.INSERT_DATE);
 		
 		return new GameBasicView(id, score, insert_date);
 	}
