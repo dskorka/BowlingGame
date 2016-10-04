@@ -9,12 +9,12 @@ import org.springframework.stereotype.Repository;
 import pl.kata.bowlinggame.game.GameViewModel;
 
 @Repository
-public class DefaultGameFinder implements GameFinder {
+public class JdbcGameFinder implements GameFinder {
 	
 	private final JdbcOperations jdbc;
 	
 	@Autowired
-	public DefaultGameFinder(JdbcOperations jdbc) {
+	public JdbcGameFinder(JdbcOperations jdbc) {
 		this.jdbc = jdbc;
 	}
 
