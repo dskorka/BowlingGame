@@ -1,4 +1,4 @@
-package pl.kata.bowlinggame.repository;
+package pl.kata.bowlinggame.finder;
 
 import java.util.List;
 
@@ -6,10 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcOperations;
 import org.springframework.stereotype.Repository;
 
-import pl.kata.bowlinggame.game.GameViewModel;
-
 @Repository
 public class JdbcGameFinder implements GameFinder {
+	
+
+	private static final String SELECT_ALL_GAMES = "select id , score , time_game from game_rolls order by = ?";
 	
 	private final JdbcOperations jdbc;
 	
@@ -20,7 +21,7 @@ public class JdbcGameFinder implements GameFinder {
 
 	@Override
 	public List<GameViewModel> findAll(int columnNumberSort) {
-		return jdbc.query(GameDbConst.SELECT_ALL_GAMES,new Object[] { columnNumberSort }, new GameViewModelRowMapper());
+		return jdbc.query(SELECT_ALL_GAMES ,new Object[] { columnNumberSort }, new GameViewModelRowMapper());
 	}
 
 }

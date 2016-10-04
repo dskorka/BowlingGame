@@ -12,7 +12,9 @@ import org.springframework.jdbc.core.JdbcOperations;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import pl.kata.bowlinggame.game.GameViewModel;
+import pl.kata.bowlinggame.finder.GameFinder;
+import pl.kata.bowlinggame.finder.GameViewModel;
+import pl.kata.bowlinggame.finder.JdbcGameFinder;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes ={DataSourceTestConfiguration.class})

@@ -1,8 +1,6 @@
-package pl.kata.bowlinggame.repository;
+package pl.kata.bowlinggame.finder;
 
 import java.util.List;
-
-import pl.kata.bowlinggame.game.GameViewModel;
 
 public interface GameFinder {
 	List<GameViewModel> findAll(int columnNumberSort);

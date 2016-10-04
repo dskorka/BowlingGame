@@ -11,7 +11,7 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
-import pl.kata.bowlinggame.repository.GameFinder;
+import pl.kata.bowlinggame.finder.GameFinder;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration

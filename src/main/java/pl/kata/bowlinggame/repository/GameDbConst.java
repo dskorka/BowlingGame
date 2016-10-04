@@ -27,7 +27,7 @@ class GameDbConst {
 	static final String TWENTYTH_ROLL = "twentyth_roll";
 	static final String TWENTH_FIRST_ROLL = "twenty_first_roll";
 	static final String SCORE = "score";
-	static final String INSERT_TIME = "insert_time";
+	static final String INSERT_TIME = "time_game";
 
 	
 	static final String SAVE_GAME_SCORE = " insert into " + TABLE_NAME +
@@ -65,6 +65,4 @@ class GameDbConst {
 	static final String SEARCH_GAME_BY_ID = "select * from " 
 			+ TABLE_NAME + " where " + ID + " = ?";
 
-	static final String SELECT_ALL_GAMES = "select " + ID + " , " + SCORE + " , " + INSERT_TIME
-			+ " from " + TABLE_NAME + " order by = ?";
 }
