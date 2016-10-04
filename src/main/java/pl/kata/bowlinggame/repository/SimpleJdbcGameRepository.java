@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 
 import javax.sql.DataSource;
 
@@ -46,6 +47,8 @@ public class SimpleJdbcGameRepository implements GameRepository {
 				prepatedStatement.setInt(i + 2, gameRolls[i]);
 			}
 			prepatedStatement.setInt(23, game.score());
+
+			prepatedStatement.setTimestamp(24, Timestamp.valueOf(game.getTimeGame()));
 			
 			prepatedStatement.executeUpdate();
 

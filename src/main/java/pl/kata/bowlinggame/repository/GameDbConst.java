@@ -27,7 +27,7 @@ class GameDbConst {
 	static final String TWENTYTH_ROLL = "twentyth_roll";
 	static final String TWENTH_FIRST_ROLL = "twenty_first_roll";
 	static final String SCORE = "score";
-	static final String INSERT_TIME = "time_game";
+	static final String TIME_GAME = "time_game";
 
 	
 	static final String SAVE_GAME_SCORE = " insert into " + TABLE_NAME +
@@ -42,8 +42,8 @@ class GameDbConst {
 			+ SIXTEENTH_ROLL + " , " + SEVENTEENTH_ROLL + " , " 
 			+ EIGHTEENTH_ROLL + " , " + NINETEENTH_ROLL + " , "
 			+ TWENTYTH_ROLL + " , " + TWENTH_FIRST_ROLL + " , "
-			+ SCORE + " , " + INSERT_TIME +
-			" ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?, now())";
+			+ SCORE + " , " + TIME_GAME +
+			" ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 	
 	static final String UPDATE_GAME_SCORE = "update " + TABLE_NAME + " set " 
 			+ FIRST_ROLL + " = ?," + SECOND_ROLL + " = ?," 

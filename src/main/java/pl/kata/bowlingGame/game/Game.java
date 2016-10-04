@@ -1,5 +1,7 @@
 package pl.kata.bowlinggame.game;
 
+import java.time.LocalDateTime;
+
 public class Game {
 
 	private final static int COUNT_FRAME = 10;
@@ -10,16 +12,19 @@ public class Game {
 	private Integer secondRoll = null;
 	private Integer extraRoll = null;
 	private int numberLoop = 0;
+	private LocalDateTime timeGame;
 
 	public Game() {
 		initializeFrame();
 		initializeLinkToTheNextFrame();
+		initializeDateTime();
 	}
 
 	public Game(int id) {
 		this.id = id;
 		initializeFrame();
 		initializeLinkToTheNextFrame();
+		initializeDateTime();
 	}
 
 	public Game(int id, int[] rollResult) {
@@ -31,6 +36,14 @@ public class Game {
 
 	public int getId() {
 		return id;
+	}
+	
+	public LocalDateTime getTimeGame(){
+		return timeGame;
+	}
+	
+	private void initializeDateTime(){
+		timeGame = LocalDateTime.now();
 	}
 
 	private void initializeFrame() {

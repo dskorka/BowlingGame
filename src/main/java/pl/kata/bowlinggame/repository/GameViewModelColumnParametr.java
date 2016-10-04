@@ -3,7 +3,7 @@ package pl.kata.bowlinggame.repository;
 public enum GameViewModelColumnParametr {
 	
 	ID(GameDbConst.ID, 1),
-	DATE(GameDbConst.INSERT_TIME, 3);
+	DATE(GameDbConst.TIME_GAME, 3);
 	
 	String columnName;
 	int columnNumber;

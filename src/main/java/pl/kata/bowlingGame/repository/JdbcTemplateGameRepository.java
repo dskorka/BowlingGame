@@ -1,7 +1,10 @@
 package pl.kata.bowlinggame.repository;
 
+import java.sql.Types;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcOperations;
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.stereotype.Repository;
 
 import pl.kata.bowlinggame.game.Game;
@@ -42,7 +45,7 @@ public class JdbcTemplateGameRepository implements GameRepository {
 	}
 	
 	private void writeGame(Game game) {
-		Object[] listObject = new Object[23];
+		Object[] listObject = new Object[24];
 		
 		listObject[0] = game.getId();
 
@@ -51,7 +54,8 @@ public class JdbcTemplateGameRepository implements GameRepository {
 			listObject[i] = rolls[i - 1];
 		}
 		listObject[22] = game.score();
-
+		listObject[23] = game.getTimeGame().toString();
+		
 		jdbcTemplate.update(GameDbConst.SAVE_GAME_SCORE, listObject);
 	}
 
