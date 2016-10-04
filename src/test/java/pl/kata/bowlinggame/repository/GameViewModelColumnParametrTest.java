@@ -6,14 +6,14 @@ import static org.junit.Assert.fail;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class SetSortParameterTest {
+public class GameViewModelColumnParametrTest {
 
 	@Test
 	public void should_get_id_column() {
 		// given
 		String searchTable = "id";
 		// when
-		int numberColumn = SortGameViewModelByColumnParameter.getColumnNumber(searchTable);
+		int numberColumn = GameViewModelColumnParametr.getColumnNumber(searchTable);
 		//then
 		Assert.assertEquals(1, numberColumn);
 	}
@@ -24,7 +24,7 @@ public class SetSortParameterTest {
 		String searchTable = "uncorectName";
 		// when
 		try{
-			SortGameViewModelByColumnParameter.getColumnNumber(searchTable);
+			GameViewModelColumnParametr.getColumnNumber(searchTable);
 			fail();
 		} catch (RuntimeException ex){
 			// then

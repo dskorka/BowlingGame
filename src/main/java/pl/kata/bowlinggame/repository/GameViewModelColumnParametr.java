@@ -1,6 +1,6 @@
 package pl.kata.bowlinggame.repository;
 
-public enum SortGameViewModelByColumnParameter {
+public enum GameViewModelColumnParametr {
 	
 	ID(GameDbConst.ID, 1),
 	DATE(GameDbConst.INSERT_TIME, 3);
@@ -8,7 +8,7 @@ public enum SortGameViewModelByColumnParameter {
 	String columnName;
 	int columnNumber;
 	
-	private SortGameViewModelByColumnParameter(String columnName, int columnNumber){
+	private GameViewModelColumnParametr(String columnName, int columnNumber){
 		this.columnName = columnName;
 		this.columnNumber = columnNumber;
 	}
@@ -25,7 +25,7 @@ public enum SortGameViewModelByColumnParameter {
 		if(tag == null){
 			return ID.columnNumber;
 		}
-		for(SortGameViewModelByColumnParameter sort: SortGameViewModelByColumnParameter.values()){
+		for(GameViewModelColumnParametr sort: GameViewModelColumnParametr.values()){
 			if(sort.getColumnName().equals(tag)){
 				return sort.getColumnNumber();
 			}

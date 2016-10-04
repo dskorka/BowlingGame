@@ -32,7 +32,7 @@ public class JdbcGameFinderTest {
 	@Test
 	public void should_get_all(){
 		// given
-		int searchColumnNumber = SortGameViewModelByColumnParameter.getColumnNumber("id");
+		int searchColumnNumber = GameViewModelColumnParametr.getColumnNumber("id");
 		// when
 		List<GameViewModel> list = gameFinder.findAll(searchColumnNumber);
 		
