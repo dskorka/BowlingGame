@@ -2,8 +2,8 @@ package pl.kata.bowlinggame.game;
 
 	class BowlingFrame {
 		
-	private Integer firstRoll;
-	private Integer secondRoll;
+	private Integer firstRoll = 0;
+	private Integer secondRoll = 0;
 	private BowlingFrame nextBowlingFrame;
 	
 

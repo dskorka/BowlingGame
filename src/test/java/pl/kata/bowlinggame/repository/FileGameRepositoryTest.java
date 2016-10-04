@@ -13,7 +13,7 @@ import pl.kata.bowlinggame.repository.FileGameRepository;
 public class FileGameRepositoryTest {
 	
 	FileGameRepository fileGameRepo; 
-	final File filePathToTheGams = new File("D:\\projects\\git\\BowlingGame\\src\\main\\resources\\gameScore.txt");
+	final File filePathToTheGams = new File("src/main/resources/db/gameScore.txt");
 	
 	@Before
 	public void setUp(){

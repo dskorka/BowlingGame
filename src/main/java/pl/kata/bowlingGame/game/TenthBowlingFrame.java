@@ -21,9 +21,4 @@ class TenthBowlingFrame extends BowlingFrame {
 	public int getScore() {
 		return super.getScore() + extraRoll;
 	}
-
-	@Override
-	public int getBonus() {
-		return super.getBonus();
-	}
 }
