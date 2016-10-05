@@ -2,13 +2,19 @@ package pl.kata.bowlinggame.controller;
 
 import java.util.Random;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import pl.kata.bowlinggame.game.Game;
+import pl.kata.bowlinggame.game.GameRolls;
 import pl.kata.bowlinggame.game.GameService;
 import pl.kata.bowlinggame.repository.GameRepository;
 
@@ -54,5 +60,24 @@ public class GameController {
 		model.addAttribute("score", searchGame.score());
 		
 		return "game";
+	}
+	
+	
+	@RequestMapping("/add")
+	public String addNewGame(@ModelAttribute GameRolls gameRolls){
+		return "newGame";
+	}
+	
+	@RequestMapping(value = "/add", method= RequestMethod.POST)
+	public String addNewGamePost(Model model, @ModelAttribute @Valid GameRolls gameRolls,
+			BindingResult bindingResult){
+		
+		if(bindingResult.hasErrors()){
+			return "newGame";
+		} else {
+			
+		}
+
+		return "dashboard";
 	}
 }

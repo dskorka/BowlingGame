@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+
+<head lang="en">
+
+<title>Spring Framework</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+
+<body>
+	<div class="container">
+		<div class="jumbotron">
+
+			<h2>Gowling Game</h2>
+
+			<p>
+				<a href="/" th:href="@{/}" class="btn btn-large btn-success">Strona
+					główna</a>
+			</p>
+			
+		<form action="#" th:action="@{/add}" th:object="${gameRolls}"  method="post" >
+		
+			<div class="form-group">
+				<label for="pierwszy rzut">Pierwszy rzut</label> 
+				
+				<input type="text" id="firstRoll" th:field="*{firstRoll}"/>
+				<p th:if="${#fields.hasErrors('firstRoll')}" th:errors="*{firstRoll}" />
+			</div>
+			
+				
+			<div class="form-group">
+				<label for="Drugi rzut">Drugi rzut</label> 
+				
+				<input type="text" id="secondRoll" th:field="*{secondRoll}" />
+				<p th:if="${#fields.hasErrors('secondRoll')}" th:errors="*{secondRoll}" />
+			</div>
+				
+			
+			<div class="form-group">
+				<label for="Trzeci rzut">Trzeci rzut</label> 
+					
+				<input type="text" id="thirdRoll" th:field="*{thirdRoll}" />
+				<p th:if="${#fields.hasErrors('thirdRoll')}" th:errors="*{thirdRoll}" />
+			</div>
+				
+			<div class="form-group">
+				<label for="Czwarty rzut">Czwarty rzut</label> 
+				
+				<input type="text" id="fourthRoll" th:field="*{fourthRoll}" />
+				<p th:if="${#fields.hasErrors('fourthRoll')}" th:errors="*{fourthRoll}" />
+			</div>
+				
+				
+			<div class="form-group">
+				<label for="Piąty rzut">Piąty rzut</label> 
+				
+				<input type="text" id="fifthRoll" th:field="*{fifthRoll}" />
+				<p th:if="${#fields.hasErrors('fifthRoll')}" th:errors="*{fifthRoll}" />
+				
+			</div>
+				
+			<div class="form-group">
+				<label for="Szósty rzut">Szósty rzut</label> 
+		
+				<input type="text" id="sixthRoll" th:field="*{sixthRoll}" />
+				<p th:if="${#fields.hasErrors('sixthRoll')}" th:errors="*{sixthRoll}" />
+					
+			</div>
+				
+			<div class="form-group">
+				<label for="Siódmy rzut">Siódmy rzut</label> 
+				
+					<input type="text" id="seventhRoll" th:field="*{seventhRoll}" />
+					<p th:if="${#fields.hasErrors('seventhRoll')}" th:errors="*{seventhRoll}" />
+				
+			</div>
+				
+			<div class="form-group">
+				<label for="Ósmy rzut">Ósmy rzut</label> 
+				
+					<input type="text" id="eighthRoll" th:field="*{eighthRoll}" />
+					<p th:if="${#fields.hasErrors('eighthRoll')}" th:errors="*{eighthRoll}" />
+					
+			</div>
+				
+			<div class="form-group">
+				<label for="Dziewiąty rzut">Dziewiąty rzut</label> 
+				
+					<input type="text" id="ninthRoll" th:field="*{ninthRoll}" />
+					<p th:if="${#fields.hasErrors('ninthRoll')}" th:errors="*{ninthRoll}" />
+				
+			</div>
+
+			<div class="form-group">
+				<label for="Dziesiąty rzut">Dziesiąty rzut</label> 
+				
+					<input type="text" id="tenthRoll" th:field="*{tenthRoll}" />
+					<p th:if="${#fields.hasErrors('tenthRoll')}" th:errors="*{tenthRoll}" />
+					
+			</div>
+				
+			<div class="form-group">
+				<label for="Jedenasty rzut">Jedenasty rzut</label> 
+			
+					<input type="text" id="eleventhRoll" th:field="*{eleventhRoll}" />
+					<p th:if="${#fields.hasErrors('eleventhRoll')}" th:errors="*{eleventhRoll}" />
+				
+			</div>
+				
+			<div class="form-group">
+				<label for="Dwónasty rzut">Dwónasty rzut</label> 
+				
+					<input type="text" id="twelfthRoll" th:field="*{twelfthRoll}" />
+					<p th:if="${#fields.hasErrors('twelfthRoll')}" th:errors="*{twelfthRoll}" />
+					
+			</div>
+			
+			<div class="form-group">
+				<label for="Trzynasty rzut">Trzynasty rzut</label> 
+					
+					<input type="text" id="thirteenthRoll" th:field="*{thirteenthRoll}" />
+					<p th:if="${#fields.hasErrors('thirteenthRoll')}" th:errors="*{thirteenthRoll}" />
+					
+			</div>
+				
+			<div class="form-group">
+				<label for="Czternasty rzut">Czternasty rzut</label> 
+				
+					<input type="text" id="fourteenthRoll" th:field="*{fourteenthRoll}" />
+					<p th:if="${#fields.hasErrors('fourteenthRoll')}" th:errors="*{fourteenthRoll}" />
+				</div>
+				
+				
+			<div class="form-group">
+				<label for="Pietnasty rzut">Pietnasty rzut</label> 
+			
+					<input type="text" id="fifteenthRoll" th:field="*{fifteenthRoll}" />
+					<p th:if="${#fields.hasErrors('fifteenthRoll')}" th:errors="*{fifteenthRoll}" />
+					
+			</div>
+				
+			<div class="form-group">
+				<label for="Szesnasty rzut">Szesnasty rzut</label> 
+					
+					<input type="text" id="sixteenthRoll" th:field="*{sixteenthRoll}" />
+					<p th:if="${#fields.hasErrors('sixteenthRoll')}" th:errors="*{sixteenthRoll}" />
+				
+			</div>
+				
+			<div class="form-group">
+				<label for="Siedemnasty rzut">Siedemnasty rzut</label> 
+				
+					<input type="text" id="seventeenthRoll" th:field="*{seventeenthRoll}" />
+					<p th:if="${#fields.hasErrors('seventeenthRoll')}" th:errors="*{seventeenthRoll}" />
+				
+			</div>
+				
+			<div class="form-group">
+				<label for="Osiemnasty rzut">Osiemnasty rzut</label> 
+					
+					<input type="text" id="eighteenthRoll" th:field="*{eighteenthRoll}" />
+					<p th:if="${#fields.hasErrors('eighteenthRoll')}" th:errors="*{eighteenthRoll}" />
+				
+			</div>
+				
+			<div class="form-group">
+				<label for="Dziewiętnasty rzut">Dziewiętnasty rzut</label> 
+					
+					<input type="text" id="nineteenthRoll" th:field="*{nineteenthRoll}" />
+					<p th:if="${#fields.hasErrors('nineteenthRoll')}" th:errors="*{nineteenthRoll}" />
+				
+			</div>
+				
+			<div class="form-group">
+				<label for="Dwudziesty rzut">Dwudziesty rzut</label> 
+			
+					<input type="text" id="twentythRoll" th:field="*{twentythRoll}" />
+					<p th:if="${#fields.hasErrors('twentythRoll')}" th:errors="*{twentythRoll}" />
+				
+			</div>
+				
+			<div class="form-group">
+				<label for="Dwudziesty pierwszy rzut">Dwudziesty pierwszy rzut</label> 
+				
+					<input type="text" id="twentyFirstRoll" th:field="*{twentyFirstRoll}" />
+					<p th:if="${#fields.hasErrors('twentyFirstRoll')}" th:errors="*{twentyFirstRoll}" />
+				
+			</div>
+
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<button id="submit" type="submit" class="btn btn-primary">Zapisz</button>
+				</div>
+			</div>
+
+			</form>
+		</div>
+	</div>
+</body>
+</html>
