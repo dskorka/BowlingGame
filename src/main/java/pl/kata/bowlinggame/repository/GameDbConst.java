@@ -31,7 +31,7 @@ class GameDbConst {
 
 	
 	static final String SAVE_GAME_SCORE = " insert into " + TABLE_NAME +
-			" ( " + ID + " , " + FIRST_ROLL + " , "
+			" ( " + FIRST_ROLL + " , "
 			+ SECOND_ROLL + " , " + THIRD_ROLL + " , " 
 			+ FOURTH_ROLL + " , " + FIFTH_ROLL + " , " 
 			+ SIXTH_ROLL + " , "  + SEVENTH_ROLL + " , " 
@@ -43,7 +43,7 @@ class GameDbConst {
 			+ EIGHTEENTH_ROLL + " , " + NINETEENTH_ROLL + " , "
 			+ TWENTYTH_ROLL + " , " + TWENTH_FIRST_ROLL + " , "
 			+ SCORE + " , " + TIME_GAME +
-			" ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+			" ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 	
 	static final String UPDATE_GAME_SCORE = "update " + TABLE_NAME + " set " 
 			+ FIRST_ROLL + " = ?," + SECOND_ROLL + " = ?," 

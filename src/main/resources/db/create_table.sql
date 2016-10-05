@@ -1,6 +1,6 @@
 CREATE TABLE IF NOT EXISTS game_rolls
 	(
-		id 					INT NOT NULL,
+		id 					INT AUTO_INCREMENT NOT NULL,
 		first_roll			INT NOT NULL,
 		second_roll 		INT NOT NULL,
 		third_roll 			INT NOT NULL,
