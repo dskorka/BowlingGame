@@ -11,7 +11,7 @@ import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 
 @Configuration
-public class DataSourceConfiguration {
+class DataSourceConfiguration {
 
 	@Bean
 	public EmbeddedDatabase dataSource() {

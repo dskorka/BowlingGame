@@ -1,10 +1,10 @@
-package pl.kata.bowlinggame.game;
+package pl.kata.bowlinggame.controller;
 
 import javax.validation.constraints.NotNull;
 
 import org.springframework.format.annotation.NumberFormat;
 
-public class GameRolls {
+class GameRolls {
 
 	@NotNull
 	private Integer firstRoll;

@@ -1,17 +1,14 @@
 package pl.kata.bowlinggame.repository;
 
-import java.sql.Types;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcOperations;
-import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.stereotype.Repository;
 
 import pl.kata.bowlinggame.game.Game;
 
 
 @Repository
-public class JdbcTemplateGameRepository implements GameRepository {
+class JdbcTemplateGameRepository implements GameRepository {
 	
 	private final JdbcOperations jdbcTemplate;	
 

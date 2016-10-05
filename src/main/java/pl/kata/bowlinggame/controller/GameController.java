@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import pl.kata.bowlinggame.game.Game;
-import pl.kata.bowlinggame.game.GameRolls;
 import pl.kata.bowlinggame.game.GameService;
 import pl.kata.bowlinggame.repository.GameRepository;
 

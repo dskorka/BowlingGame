@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import pl.kata.bowlinggame.finder.GameFinder;
 import pl.kata.bowlinggame.finder.GameViewModel;
-import pl.kata.bowlinggame.repository.GameViewModelColumnParametr;
+import pl.kata.bowlinggame.finder.SortParameter;
 
 
 @Controller
@@ -28,7 +28,7 @@ public class DashboardController {
 	public String game(@RequestParam(value = "sortValue", required = false, defaultValue = "id")
 						String sortValue, Model model) {
 		
-		int searchTableNumber = GameViewModelColumnParametr.getColumnNumber(sortValue);
+		int searchTableNumber = SortParameter.getColumnNumber(sortValue);
 		List<GameViewModel> games = gameFinder.findAll(searchTableNumber);
 		
 		model.addAttribute("gameBasicData", games);
