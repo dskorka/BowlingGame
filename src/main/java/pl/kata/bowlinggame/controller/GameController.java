@@ -32,7 +32,7 @@ public class GameController {
 
 	@RequestMapping("/playGame")
 	public String game(Model model) {
-		
+
 		Random rd = new Random();
 		Game game = new Game(rd.nextInt(100));
 
@@ -50,34 +50,45 @@ public class GameController {
 
 		return "game";
 	}
-	
+
 	@RequestMapping("/gameDetails/{id}")
-	public String getGameDetails(@PathVariable("id") int id, Model model){
+	public String getGameDetails(@PathVariable("id") int id, Model model) {
 		Game searchGame = gameRepository.load(id);
-		
+
 		model.addAttribute("id", searchGame.getId());
 		model.addAttribute("rolls", gameService.prepareFramesWithScores(searchGame.getRolls()));
 		model.addAttribute("score", searchGame.score());
-		
+
 		return "game";
 	}
-	
-	
+
 	@RequestMapping("/add")
-	public String addNewGame(@ModelAttribute GameRolls gameRolls){
+	public String addNewGame(@ModelAttribute GameRolls gameRolls) {
 		return "newGame";
 	}
-	
-	@RequestMapping(value = "/add", method= RequestMethod.POST)
-	public String addNewGamePost(Model model, @ModelAttribute @Valid GameRolls gameRolls,
-			BindingResult bindingResult){
-		
-		if(bindingResult.hasErrors()){
+
+	@RequestMapping(value = "/add", method = RequestMethod.POST)
+	public String addNewGamePost(@ModelAttribute @Valid GameRolls gameRolls, BindingResult bindingResult) {
+
+		if (bindingResult.hasErrors()) {
 			return "newGame";
 		} else {
 			
+			int id = createGameId();
+
+			Game game = new Game(id, gameRolls.getRolls());
+			gameRepository.save(game);
+			
+			return "redirect:/gameDetails/" + id;
 		}
 
-		return "dashboard";
+		
 	}
+
+	private int createGameId() {
+		Random rd = new Random();
+		int idGame = rd.nextInt(100);
+		return idGame;
+	}
+
 }

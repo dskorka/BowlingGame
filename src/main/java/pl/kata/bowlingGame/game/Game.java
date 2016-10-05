@@ -32,6 +32,7 @@ public class Game {
 		initializeFrame();
 		initializeLinkToTheNextFrame();
 		initializeFrameByRollResult(rollResult);
+		initializeDateTime();
 	}
 
 	public int getId() {

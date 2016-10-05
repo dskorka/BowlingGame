@@ -1,88 +1,72 @@
 package pl.kata.bowlinggame.game;
 
-import javax.validation.constraints.Max;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.NumberFormat;
 
 public class GameRolls {
 
 	@NotNull
-	@Size(min = 0, max = 10)
 	private Integer firstRoll;
+	
 	@NotNull
-	@NumberFormat
-	@Max(10)
 	private Integer secondRoll;
+	
 	@NotNull
-	@NumberFormat
 	private Integer thirdRoll;
+	
 	@NotNull
-	@NumberFormat
-	@Max(10)
 	private Integer fourthRoll;
+	
 	@NotNull
-	@NumberFormat
-	@Max(10)
 	private Integer fifthRoll;
+	
 	@NotNull
-	@NumberFormat
-	@Max(10)
 	private Integer sixthRoll;
+	
 	@NotNull
-	@NumberFormat
-	@Max(10)
 	private Integer seventhRoll;
+	
 	@NotNull
-	@NumberFormat
-	@Max(10)
 	private Integer eighthRoll;
+	
 	@NotNull
-	@NumberFormat
-	@Max(10)
 	private Integer ninthRoll;
 	@NotNull
 	@NumberFormat
-	@Max(10)
 	private Integer tenthRoll;
+	
 	@NotNull
-	@NumberFormat
-	@Max(10)
 	private Integer eleventhRoll;
+	
 	@NotNull
-	@NumberFormat
-	@Max(10)
 	private Integer twelfthRoll;
+	
 	@NotNull
-	@NumberFormat
-	@Max(10)
 	private Integer thirteenthRoll;
+	
 	@NotNull
-	@NumberFormat
-	@Max(10)
 	private Integer fourteenthRoll;
+	
 	@NotNull
-	@NumberFormat
-	@Max(10)
 	private Integer fifteenthRoll;
+	
 	@NotNull
-	@NumberFormat
-	@Max(10)private Integer sixteenthRoll;
+	private Integer sixteenthRoll;
+	
 	@NotNull
-	@NumberFormat
 	private Integer seventeenthRoll;
+	
 	@NotNull
-	@NumberFormat
 	private Integer eighteenthRoll;
+	
 	@NotNull
-	@NumberFormat
 	private Integer nineteenthRoll;
+	
 	@NotNull
-	@NumberFormat
 	private Integer twentythRoll;
+	
 	@NotNull
-	@NumberFormat
 	private Integer twentyFirstRoll;
 
 	public Integer getFirstRoll() {
@@ -252,5 +236,30 @@ public class GameRolls {
 	public void setTwentyFirstRoll(Integer twentyFirstRoll) {
 		this.twentyFirstRoll = twentyFirstRoll;
 	}
-
+	public int[] getRolls(){
+		int [] rolls = new int[21];
+		rolls[0] = getFirstRoll();
+		rolls[1] = getSecondRoll();
+		rolls[2] = getThirdRoll();
+		rolls[3] = getFourthRoll();
+		rolls[4] = getFifthRoll();
+		rolls[5] = getSixthRoll();
+		rolls[6] = getSeventhRoll();
+		rolls[7] = getEighthRoll();
+		rolls[8] = getNinthRoll();
+		rolls[9] = getTenthRoll();
+		rolls[10] = getEleventhRoll();
+		rolls[11] = getTwelfthRoll();
+		rolls[12] = getThirteenthRoll();
+		rolls[13] = getFourteenthRoll();
+		rolls[14] = getFifteenthRoll();
+		rolls[15] = getSixteenthRoll();
+		rolls[16] = getSeventeenthRoll();
+		rolls[17] = getEighteenthRoll();
+		rolls[18] = getNineteenthRoll();
+		rolls[19] = getTwentythRoll();
+		rolls[20] = getTwentyFirstRoll();
+		
+		return rolls;
+	}
 }
