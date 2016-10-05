@@ -9,10 +9,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import pl.kata.bowlinggame.repository.GameViewModelColumnParametr;
 import pl.kata.bowlinggame.finder.GameFinder;
 import pl.kata.bowlinggame.finder.GameViewModel;
-import pl.kata.bowlinggame.finder.SortParameter;
+import pl.kata.bowlinggame.repository.GameViewModelColumnParametr;
 
 
 @Controller
@@ -34,6 +33,6 @@ public class DashboardController {
 		
 		model.addAttribute("gameBasicData", games);
 		
-		return "dashboard";
+		return "allGame";
 	}
 }
