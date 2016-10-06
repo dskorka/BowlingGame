@@ -45,23 +45,6 @@ class GameDbConst {
 			+ SCORE + " , " + TIME_GAME +
 			" ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 	
-	static final String UPDATE_GAME_SCORE = "update " + TABLE_NAME + " set " 
-			+ FIRST_ROLL + " = ?," + SECOND_ROLL + " = ?," 
-			+ THIRD_ROLL + " = ?," + FOURTH_ROLL + " = ?," 
-			+ FIFTH_ROLL + " = ?," + SIXTH_ROLL + " = ?," 
-			+ SEVENTH_ROLL + " = ?," + EIGHTH_ROLL + " = ?," 
-			+ NINTH_ROLL + " = ?," + TENTH_ROLL + " = ?,"
-			+ ELEVENTH_ROLL + " = ?," + TWELFTH_ROLL + " = ?," 
-			+ THIRTEENTH_ROLL + " = ?," + FOURTEENTH_ROLL + " = ?,"
-			+ FIFTEENTH_ROLL + " = ?," + SIXTEENTH_ROLL + " = ?," 
-			+ SEVENTEENTH_ROLL + " = ?," + EIGHTEENTH_ROLL + " = ?," 
-			+ NINETEENTH_ROLL + " = ?," + TWENTYTH_ROLL + " = ?," 
-			+ TWENTH_FIRST_ROLL + " = ?,"  + SCORE + " = ?"
-			+ " where " + ID + " = ?";
-	
-	static final String GET_COUNT_BY_ID_GAME = "select count(*) from " 
-			+ TABLE_NAME + " where " + ID + " = ?";
-	
 	static final String SEARCH_GAME_BY_ID = "select * from " 
 			+ TABLE_NAME + " where " + ID + " = ?";
 
