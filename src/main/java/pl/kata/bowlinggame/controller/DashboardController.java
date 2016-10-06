@@ -24,14 +24,14 @@ public class DashboardController {
 		this.gameFinder = gameFinder;
 	}
 	
-	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String game(@RequestParam (value = "sortValue", required = false, defaultValue = "ID")
+	@RequestMapping(value = {"/", "/games"}, method = RequestMethod.GET)
+	public String games(@RequestParam (value = "sortValue", required = false, defaultValue = "ID")
 						SortParameter sortValue, Model model) {
 		
 		List<GameViewModel> games = gameFinder.findAll(sortValue);
 		
 		model.addAttribute("gameBasicData", games);
 		
-		return "allGame";
+		return "games";
 	}
 }

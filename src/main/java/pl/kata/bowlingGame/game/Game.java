@@ -7,7 +7,7 @@ public class Game {
 	private final static int COUNT_FRAME = 10;
 	private final BowlingFrame[] bowlingFrame = new BowlingFrame[COUNT_FRAME - 1];
 	private final TenthBowlingFrame tenthBowlingFrame = new TenthBowlingFrame();
-	private int id;
+	private Integer id;
 	private Integer firstRoll = null;
 	private Integer secondRoll = null;
 	private Integer extraRoll = null;
@@ -42,7 +42,7 @@ public class Game {
 		initializeDateTime();
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 	

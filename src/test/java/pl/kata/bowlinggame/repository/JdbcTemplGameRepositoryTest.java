@@ -1,5 +1,8 @@
 package pl.kata.bowlinggame.repository;
 
+import static org.assertj.core.api.Assertions.setLenientDateParsing;
+import static org.junit.Assert.*;
+
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -34,7 +37,7 @@ public class JdbcTemplGameRepositoryTest {
 	}
 
 	@Test
-	public void should_save_and_load_game_of_data_base() {
+	public void should_save_and_load_game_of_data_base() throws InterruptedException {
 		// given
 		Game testGame = new Game();
 		for (int i = 0; i < 20; i++) {
@@ -43,11 +46,14 @@ public class JdbcTemplGameRepositoryTest {
 
 		// when
 		int id = templateGameRepository.save(testGame);
-		Game gameOfRepository = templateGameRepository.load(id);
+		
+		Thread.sleep(1000);
+		Game gameFromRepository = templateGameRepository.load(id);
 
 		// then
-		int score = gameOfRepository.score();
-		Assert.assertEquals(20, score);
+		assertNotNull(gameFromRepository.getId());
+		assertEquals(testGame.score(), gameFromRepository.score());
+		assertEquals(testGame.getTimeGame(), gameFromRepository.getTimeGame());
 	}
 	
 	@Test

@@ -27,7 +27,7 @@ public class GameController {
 		this.gameService = gameService;
 	}
 
-	@RequestMapping("/game/{id}/details")
+	@RequestMapping("/games/{id}")
 	public String getGameDetails(@PathVariable("id") int id, Model model) {
 		
 		Game searchGame = gameRepository.load(id);
@@ -39,23 +39,23 @@ public class GameController {
 		return "detailsGame";
 	}
 
-	@RequestMapping("/game/add")
+	@RequestMapping("/games/add")
 	public String addNewGame(@ModelAttribute GameRolls gameRolls) {
-		return "newGame";
+		return "add";
 	}
 
 	@RequestMapping(value = "/game/add", method = RequestMethod.POST)
 	public String addNewGamePost(@ModelAttribute @Valid GameRolls gameRolls, BindingResult bindingResult) {
 
 		if (bindingResult.hasErrors()) {
-			return "newGame";
+			return "add";
 		} else {
 			
 			final Game game = new Game(gameRolls.getRolls());
 			
 			final int id = gameRepository.save(game);
 			
-			return "redirect:/game/" + id + "/details";
+			return "redirect:/games/" + id;
 		}
 	}
 }
