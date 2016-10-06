@@ -25,11 +25,10 @@ public class DashboardController {
 	}
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String game(@RequestParam(value = "sortValue", required = false, defaultValue = "id")
-						String sortValue, Model model) {
+	public String game(@RequestParam (value = "sortValue", required = false, defaultValue = "ID")
+						SortParameter sortValue, Model model) {
 		
-		int searchTableNumber = SortParameter.getColumnNumber(sortValue);
-		List<GameViewModel> games = gameFinder.findAll(searchTableNumber);
+		List<GameViewModel> games = gameFinder.findAll(sortValue);
 		
 		model.addAttribute("gameBasicData", games);
 		

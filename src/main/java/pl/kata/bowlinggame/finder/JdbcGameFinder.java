@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 public class JdbcGameFinder implements GameFinder {
 	
 
-	private static final String SELECT_ALL_GAMES = "select id , score , time_game from game_rolls order by = ?";
+	private static final String SELECT_ALL_GAMES = "select id , score , time_game from game_rolls order by ?";
 	
 	private final JdbcOperations jdbc;
 	
@@ -20,8 +20,9 @@ public class JdbcGameFinder implements GameFinder {
 	}
 
 	@Override
-	public List<GameViewModel> findAll(int columnNumberSort) {
-		return jdbc.query(SELECT_ALL_GAMES ,new Object[] { columnNumberSort }, new GameViewModelRowMapper());
+	public List<GameViewModel> findAll(SortParameter sortParameter) {
+		int id = sortParameter.getColumnNumber();
+		return jdbc.query(SELECT_ALL_GAMES ,new Object[] {id }, new GameViewModelRowMapper());
 	}
 
 }
