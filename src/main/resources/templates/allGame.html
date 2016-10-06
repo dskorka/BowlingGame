@@ -17,7 +17,7 @@
 		<h2>Witaj w Gowling Game!</h2>
 
 		<p>
-			<a href="/add" th:href="@{/add}"
+			<a href="/add" th:href="@{/game/add}"
 				class="btn btn-large btn-success">Uruchom grę</a>
 		</p>
 
@@ -47,7 +47,7 @@
 						<td th:text="${game.score}"></td>
 						<td th:text="${game.timeGame}"></td>
 					  	<td>  
-							<a th:href="@{|/gameDetails/${game.id}|}">Szczegóły</a>
+							<a th:href="@{|/game/${game.id}/details|}">Szczegóły</a>
 						</td>
 					</tr>
 

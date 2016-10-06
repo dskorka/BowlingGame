@@ -35,9 +35,9 @@ public class JdbcGameFinderTest {
 	@Test
 	public void should_get_all(){
 		// given
-		int searchColumnNumber = SortParameter.getColumnNumber("id");
+		SortParameter searchGame = SortParameter.ID;
 		// when
-		List<GameViewModel> list = gameFinder.findAll(searchColumnNumber);
+		List<GameViewModel> list = gameFinder.findAll(searchGame);
 		
 		// then
 		assertThat(list).isNotEmpty();

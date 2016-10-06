@@ -1,7 +1,5 @@
 package pl.kata.bowlinggame.controller;
 
-import java.util.Random;
-
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +27,7 @@ public class GameController {
 		this.gameService = gameService;
 	}
 
-	@RequestMapping("/gameDetails/{id}")
+	@RequestMapping("/game/{id}/details")
 	public String getGameDetails(@PathVariable("id") int id, Model model) {
 		
 		Game searchGame = gameRepository.load(id);
@@ -41,12 +39,12 @@ public class GameController {
 		return "detailsGame";
 	}
 
-	@RequestMapping("/add")
+	@RequestMapping("/game/add")
 	public String addNewGame(@ModelAttribute GameRolls gameRolls) {
 		return "newGame";
 	}
 
-	@RequestMapping(value = "/add", method = RequestMethod.POST)
+	@RequestMapping(value = "/game/add", method = RequestMethod.POST)
 	public String addNewGamePost(@ModelAttribute @Valid GameRolls gameRolls, BindingResult bindingResult) {
 
 		if (bindingResult.hasErrors()) {
@@ -57,7 +55,7 @@ public class GameController {
 			
 			final int id = gameRepository.save(game);
 			
-			return "redirect:/gameDetails/" + id;
+			return "redirect:/game/" + id + "/details";
 		}
 	}
 }
