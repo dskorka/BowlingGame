@@ -36,7 +36,7 @@ public class GameController {
 		model.addAttribute("rolls", gameService.prepareFramesWithScores(searchGame.getRolls()));
 		model.addAttribute("score", searchGame.score());
 
-		return "detailsGame";
+		return "list";
 	}
 
 	@RequestMapping("/games/add")
@@ -44,7 +44,7 @@ public class GameController {
 		return "add";
 	}
 
-	@RequestMapping(value = "/game/add", method = RequestMethod.POST)
+	@RequestMapping(value = "/games/add", method = RequestMethod.POST)
 	public String addNewGamePost(@ModelAttribute @Valid GameRolls gameRolls, BindingResult bindingResult) {
 
 		if (bindingResult.hasErrors()) {

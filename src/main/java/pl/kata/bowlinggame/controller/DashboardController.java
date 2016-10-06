@@ -32,6 +32,6 @@ public class DashboardController {
 		
 		model.addAttribute("gameBasicData", games);
 		
-		return "games";
+		return "dashboard";
 	}
 }
