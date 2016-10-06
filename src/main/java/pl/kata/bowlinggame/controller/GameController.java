@@ -53,12 +53,13 @@ public class GameController {
 			return "newGame";
 		} else {
 			
-			int id = createGameId();
+		
 
-			Game game = new Game(id, gameRolls.getRolls());
-			gameRepository.save(game);
+			Game game = new Game(gameRolls.getRolls());
+			int id = gameRepository.save(game);
 			
 			return "redirect:/gameDetails/" + id;
+			
 		}
 	}
 

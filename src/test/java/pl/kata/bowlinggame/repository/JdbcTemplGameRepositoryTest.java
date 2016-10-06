@@ -36,14 +36,14 @@ public class JdbcTemplGameRepositoryTest {
 	@Test
 	public void should_save_and_load_game_of_data_base() {
 		// given
-		Game testGame = new Game(1);
+		Game testGame = new Game();
 		for (int i = 0; i < 20; i++) {
 			testGame.roll(1);
 		}
 
 		// when
-		templateGameRepository.save(testGame);
-		Game gameOfRepository = templateGameRepository.load(testGame.getId());
+		int id = templateGameRepository.save(testGame);
+		Game gameOfRepository = templateGameRepository.load(id);
 
 		// then
 		int score = gameOfRepository.score();
