@@ -18,8 +18,8 @@ import pl.kata.bowlinggame.repository.GameRepository;
 @Controller
 public class GameController {
 
-	GameRepository gameRepository;
-	GameService gameService;
+	private final GameRepository gameRepository;
+	private final GameService gameService;
 
 	@Autowired
 	public GameController(GameRepository gameRepository, GameService gameService) {
@@ -36,12 +36,13 @@ public class GameController {
 		model.addAttribute("rolls", gameService.prepareFramesWithScores(searchGame.getRolls()));
 		model.addAttribute("score", searchGame.score());
 
-		return "list";
+		return "/games/list";
 	}
 
 	@RequestMapping("/games/add")
-	public String addNewGame(@ModelAttribute GameRolls gameRolls) {
-		return "add";
+	public String addNewGame(Model model) {
+		model.addAttribute(new GameRolls());
+		return "/games/add";
 	}
 
 	@RequestMapping(value = "/games/add", method = RequestMethod.POST)

@@ -32,6 +32,7 @@ public class DashboardController {
 		
 		model.addAttribute("gameBasicData", games);
 		
-		return "dashboard";
+		return "/games/dashboard";
 	}
+
 }

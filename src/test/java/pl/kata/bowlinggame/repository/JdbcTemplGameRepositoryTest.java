@@ -1,7 +1,7 @@
 package pl.kata.bowlinggame.repository;
 
-import static org.assertj.core.api.Assertions.setLenientDateParsing;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 import org.junit.Assert;
 import org.junit.Before;

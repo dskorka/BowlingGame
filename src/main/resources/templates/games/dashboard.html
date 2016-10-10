@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
-	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<html xmlns:th="http://www.thymeleaf.org">
 
 
 <head lang="en">
@@ -12,7 +10,7 @@
 
 <body>
 
-	<div class="row" layout:fragment="content">
+	<div class= "jumbotron text-center" >
 
 		<h2>Witaj w Gowling Game!</h2>
 
@@ -20,7 +18,7 @@
 			<a href="/games/add" th:href="@{/games/add}"
 				class="btn btn-large btn-success">Uruchom grę</a>
 		</p>
-
+</div>
 		<table class="table table-striped">
 			<thead>
 			<h2>Wyniki gry:</h2>
@@ -54,7 +52,6 @@
 
 			</tbody>
 		</table>
-	</div>
 
 </body>
 </html>
