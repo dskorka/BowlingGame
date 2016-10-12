@@ -6,6 +6,10 @@
 
 <title>Spring Framework</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+ <link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.4/css/bootstrap.min.css"
+          th:href="@{/webjars/bootstrap/3.3.4/css/bootstrap.min.css}"
+          rel="stylesheet" media="screen" />
 </head>
 
 <body>
@@ -19,7 +23,8 @@
 				class="btn btn-large btn-success">Uruchom grę</a>
 		</p>
 </div>
-		<table class="table table-striped">
+	<div class="container">
+		<table class="table table-bordered">
 			<thead>
 			<h2>Wyniki gry:</h2>
 				<tr>
@@ -52,6 +57,6 @@
 
 			</tbody>
 		</table>
-
+</div>
 </body>
 </html>

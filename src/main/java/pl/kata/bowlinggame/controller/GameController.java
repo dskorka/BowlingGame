@@ -47,11 +47,11 @@ public class GameController {
 
 	@RequestMapping(value = "/games/add", method = RequestMethod.POST)
 	public String addNewGamePost(@ModelAttribute @Valid GameRolls gameRolls, BindingResult bindingResult) {
-
+	
 		if (bindingResult.hasErrors()) {
-			return "add";
+			return "/games/add";
 		} else {
-			
+
 			final Game game = new Game(gameRolls.getRolls());
 			
 			final int id = gameRepository.save(game);

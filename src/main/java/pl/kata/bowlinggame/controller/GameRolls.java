@@ -6,7 +6,7 @@ import org.springframework.format.annotation.NumberFormat;
 
 class GameRolls {
 
-	@NotNull
+	@NotNull()
 	private Integer firstRoll;
 	
 	@NotNull
