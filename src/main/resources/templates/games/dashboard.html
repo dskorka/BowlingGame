@@ -47,7 +47,10 @@
 					<tr th:each="game : ${gameBasicData}">
 
 						<td th:text="${game.id}"></td>
-						<td th:text="${game.score}"></td>
+					<!--  <td th:text="${game.score}"></td>-->	
+					
+					<td th:text="${game.score}>47 ? ${game.score} : 'zbyt niski wynik aby wyświetlić!'"/> 
+					
 						<td th:text="${game.timeGame}"></td>
 					  	<td>  
 							<a th:href="@{|/games/${game.id}|}">Szczegóły</a>
@@ -58,5 +61,7 @@
 			</tbody>
 		</table>
 </div>
+
+<div th:replace="fragments/footer :: pageAutor(name = 'Damian')"></div>
 </body>
 </html>
