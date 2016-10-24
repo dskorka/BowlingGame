@@ -262,4 +262,40 @@ class GameRolls {
 		
 		return rolls;
 	}
+
+	
+	GameRolls() {
+		super();
+	}
+
+	GameRolls(Integer firstRoll, Integer secondRoll, Integer thirdRoll, Integer fourthRoll, Integer fifthRoll,
+			Integer sixthRoll, Integer seventhRoll, Integer eighthRoll, Integer ninthRoll, Integer tenthRoll,
+			Integer eleventhRoll, Integer twelfthRoll, Integer thirteenthRoll, Integer fourteenthRoll,
+			Integer fifteenthRoll, Integer sixteenthRoll, Integer seventeenthRoll, Integer eighteenthRoll,
+			Integer nineteenthRoll, Integer twentythRoll, Integer twentyFirstRoll) {
+		super();
+		this.firstRoll = firstRoll;
+		this.secondRoll = secondRoll;
+		this.thirdRoll = thirdRoll;
+		this.fourthRoll = fourthRoll;
+		this.fifthRoll = fifthRoll;
+		this.sixthRoll = sixthRoll;
+		this.seventhRoll = seventhRoll;
+		this.eighthRoll = eighthRoll;
+		this.ninthRoll = ninthRoll;
+		this.tenthRoll = tenthRoll;
+		this.eleventhRoll = eleventhRoll;
+		this.twelfthRoll = twelfthRoll;
+		this.thirteenthRoll = thirteenthRoll;
+		this.fourteenthRoll = fourteenthRoll;
+		this.fifteenthRoll = fifteenthRoll;
+		this.sixteenthRoll = sixteenthRoll;
+		this.seventeenthRoll = seventeenthRoll;
+		this.eighteenthRoll = eighteenthRoll;
+		this.nineteenthRoll = nineteenthRoll;
+		this.twentythRoll = twentythRoll;
+		this.twentyFirstRoll = twentyFirstRoll;
+	}
+	
+	
 }

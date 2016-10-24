@@ -24,7 +24,7 @@
 				<a href="/" th:href="@{/}" class="btn btn-large btn-success">Strona
 					główna</a>
 			</p>
-			
+		</div>
 		
 			
 		<form action="#" th:action="@{/games/add}" th:object="${gameRolls}"  method="post" >
@@ -203,9 +203,9 @@
 			</div>
 
 			</form>
-		</div>
+		
 	</div>
 	
-	<div th:replace="fragments/footer :: pageAutor(name = 'Damian')"></div>
+	<div th:replace="fragments/footer :: pageAutor('Damian')"></div>
 </body>
 </html>

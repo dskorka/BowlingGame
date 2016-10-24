@@ -7,61 +7,56 @@
 <title>Spring Framework</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
- <link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.4/css/bootstrap.min.css"
-          th:href="@{/webjars/bootstrap/3.3.4/css/bootstrap.min.css}"
-          rel="stylesheet" media="screen" />
+<link
+	href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.4/css/bootstrap.min.css"
+	th:href="@{/webjars/bootstrap/3.3.4/css/bootstrap.min.css}"
+	rel="stylesheet" media="screen" />
 </head>
 
 <body>
 
-	<div class= "jumbotron text-center" >
-
-		<h2>Witaj w Gowling Game!</h2>
-
+<div class="jumbotron text-center">
+	<h2>Gowling Game!</h2>
+	
 		<p>
 			<a href="/games/add" th:href="@{/games/add}"
 				class="btn btn-large btn-success">Uruchom grę</a>
 		</p>
 </div>
-	<div class="container">
+	
+<div class="container">
+	<div th:with ="message = 'zbyt niski wynik aby wyświetlić!'"> 
+		<h2>Wyniki gry:</h2>
+		
 		<table class="table table-bordered">
+			
 			<thead>
-			<h2>Wyniki gry:</h2>
 				<tr>
-					<th>
-						<a href="/?sortValue=ID" th:href="@{/?sortValue=ID}" >ID</a>
-					</th>
+					<th><a href="/?sortValue=ID" th:href="@{/?sortValue=ID}">ID</a></th>
 					
 					<th>Score</th>
-					
-					<th>
-						<a href="/?sortValue=TIME_GAME" th:href="@{/?sortValue=TIME_GAME}" >Date game</a>
-					</th>
-					<th> </th>
+
+					<th><a href="/?sortValue=TIME_GAME" th:href="@{/?sortValue=TIME_GAME}">Date game</a></th>
 				</tr>
 			</thead>
 
 			<tbody>
-
-				
-					<tr th:each="game : ${gameBasicData}">
-
-						<td th:text="${game.id}"></td>
-					<!--  <td th:text="${game.score}"></td>-->	
+				<tr th:each="game : ${gameBasicData}">
 					
-					<td th:text="${game.score}>47 ? ${game.score} : 'zbyt niski wynik aby wyświetlić!'"/> 
+					<td th:text="${game.id}"/>
 					
-						<td th:text="${game.timeGame}"></td>
-					  	<td>  
-							<a th:href="@{|/games/${game.id}|}">Szczegóły</a>
-						</td>
-					</tr>
+					<td	th:text="${game.score}>47 ? ${game.score} : ${message}" />
 
-
+					<td th:text="${game.timeGame}"/>
+					
+					<td><a th:href="@{|/games/${game.id}|}">Szczegóły</a></td>
+				</tr>
 			</tbody>
 		</table>
+	</div>
+	
 </div>
-
-<div th:replace="fragments/footer :: pageAutor(name = 'Damian')"></div>
+	<div th:replace="fragments/footer :: pageAutor('Damian')"></div>
 </body>
+
 </html>

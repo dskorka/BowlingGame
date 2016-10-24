@@ -14,50 +14,53 @@
 
 
 <body>
-	<div class="container">
-		<div class="jumbotron">
 
-			<h2>Gowling Game</h2>
-
-			<p>
-				<a href="/" th:href="@{/}" class="btn btn-large btn-success">Strona
-					główna</a>
-			</p>
+<div class="container">
+	<div class="jumbotron">
+		
+		<h2>Gowling Game</h2>
+		
+		<p>
+			<a href="/" th:href="@{/}" class="btn btn-large btn-success">Strona główna</a>
+		</p>
 	</div>
-			<table class="table table-striped">
-				<thead>
-					<tr>
-						<th>ID</th>
-						<th>First frame</th>
-						<th>Second frame</th>
-						<th>Third frame</th>
-						<th>Fourth frame</th>
-						<th>Fifth frame</th>
-						<th>Sixth frame</th>
-						<th>Seventh frame</th>
-						<th>Eight frame</th>
-						<th>Ninth frame</th>
-						<th>Tenth frame</th>
-						<th>Score</th>
-					</tr>
-				</thead>
+</div>
+		
+<div class="container">
+	<table class="table table-striped">
+		
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>First frame</th>
+				<th>Second frame</th>
+				<th>Third frame</th>
+				<th>Fourth frame</th>
+				<th>Fifth frame</th>
+				<th>Sixth frame</th>
+				<th>Seventh frame</th>
+				<th>Eight frame</th>
+				<th>Ninth frame</th>
+				<th>Tenth frame</th>
+				<th>Score</th>
+			</tr>
+		</thead>
 
-				<tbody>
+		<tbody>
+			<tr>
+				<td th:text="${id}"></td>
 
-					<tr>
-						<td th:text="${id}"></td>
+				<td th:each="i : ${rolls}">
+					<p th:text="${i}"></p>
+				</td>
 
-						<td th:each="i : ${rolls}">
-							<p th:text="${i}"></p>
-						</td>
+				<td th:text="${score}" />
+			</tr>
+		</tbody>
+	</table>
+</div>
 
-						<td th:text="${score}" />
-					</tr>
-				</tbody>
-			</table>
-	
-	</div>
-	
-	<div th:replace="fragments/footer :: pageAutor(name = 'Damian')"></div>
+<div th:replace="fragments/footer :: pageAutor('Damian')"></div>
+
 </body>
 </html>
