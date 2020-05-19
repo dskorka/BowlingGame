@@ -33,7 +33,7 @@
 	*command - akcja(czasownik) której efektem jest zmiana jakiegoś stanu. Nie zwraca wartości
 	*query - zwrócenie danych
 - W kodzie produkcyjnym nie tworzymy metod na potrzeby testów
-
+- Korzystamy z kompozycji zamiast dziedziczenia
 
 
 ##### Testy
