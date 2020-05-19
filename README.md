@@ -12,6 +12,10 @@
 	*Interface segregation principle(zasada segregacji interfejsów) - interfejs udostępnia tylko niezbedne metody
 	*Dependency inversion principle(zasada odwrócenia zależności) - wstrzykiwanie zależności. Moduły wysokopoziomowe nie powinny zależeć od modułów nisko poziomowych, np. usługi zapisującej nie interesuje jak dane zostają zapisane i gdzie
 
+##### Nazewnictwo
+- prefix get jeśli zwracamy obiekt
+- find jeśli rezultat opakowany jest Optionalem
+
 
 ##### Tworzenie kodu
 
